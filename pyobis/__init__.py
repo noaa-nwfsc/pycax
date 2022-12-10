@@ -1,22 +1,22 @@
 """
-pyobis library
+pyCAX library
 ~~~~~~~~~~~~~~~~~~~~~
 
-pyobis is a Python client for OBIS.
+pyCAX is a Python client for CAX.
 
 Example usage:
 
 # Import entire library
-import pyobis
+import pyCAX
 # or import modules as needed
-## occurrence
-from pyobis import occurrence
-## taxa
-from pyobis import taxa
-## dataset
-from pyobis import dataset
-## checklist
-from pyobis import checklist
+## hli_xport
+from pyCAX import hli_xport
+## hli
+from pyCAX import hli
+## tables
+from pyCAX import tables
+## utils
+from pyCAX import utils
 
 ## use advanced logging
 ### setup first
@@ -30,8 +30,8 @@ requests_log = logging.getLogger("requests.packages.urllib3")
 requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
 ### then make request
-from pyobis import occurrence
-occurrence.search(geometry='POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))')
+#from pyCAX import hli_xport
+#occurrence.search(geometry='POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))')
 """
 
 try:
@@ -39,20 +39,18 @@ try:
 except ImportError:
     __version__ = "unknown"
 
-__title__ = "pyobis"
-__author__ = "pyOBIS Community"
+__title__ = "pyCAX"
+__author__ = "Eli Holmes and Mari Williams"
 __license__ = "MIT"
 
-from .checklist import checklist
-from .dataset import dataset
-from .nodes import nodes
-from .occurrences import occurrences
-from .taxa import taxa
+from .hli_xport import hli_xport
+from .hli import hli
+from .tables import tables
+from .utils import utils
 
 __all__ = [
-    "checklist",
-    "dataset",
-    "nodes",
-    "occurrences",
-    "taxa",
+    "hli_xport",
+    "hli",
+    "tables",
+    "utils",
 ]
