@@ -9,10 +9,10 @@ install:
 	python -m pip install -e .
 
 test:
-	nosetests -v --with-coverage --cover-package=pyobis
+	nosetests -v --with-coverage --cover-package=pyCAX
 
 test3:
-	python3 -m "nose" -v --with-coverage --cover-package=pyobis
+	python3 -m "nose" -v --with-coverage --cover-package=pyCAX
 
 docs:
 	cd docs;\
