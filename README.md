@@ -8,7 +8,8 @@
 -->
 
 `pyCAX` is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries.
-[Source on GitHub at iobis/pyobis](https://github.com/iobis/pyobis)
+
+[Source on GitHub at nwfsc-math-bio/pyCAX](https://github.com/nwfsc-math-bio/pyCAX)
 
 ## Installation
 
@@ -37,7 +38,7 @@ python -m pytest -rxs --cov=pyCAX tests
 
 ## Documentation
 
-The official documentation is hosted on GitHub Pages [https://iobis.github.io/pyobis](https://iobis.github.io/pyobis).
+The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.github.io/pyCAX](https://nwfsc-math-bio.github.io/pyCAX).
 
 ## Library API
 
