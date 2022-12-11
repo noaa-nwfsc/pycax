@@ -7,6 +7,7 @@ import sys
 from urllib.parse import urlencode
 
 import pandas as pd
+import numpy as np
 import requests
 
 from ..caxutils import (
@@ -20,6 +21,7 @@ from ..caxutils import (
 
 from pycax import datasets
 
+CAX_TABLES = datasets.getdf()
 
 class TablesResponse:
     """
@@ -113,9 +115,7 @@ def tableid(tablename):
         from pycax import tables
         tables.tableid("NOSA")
     """
-    tab = datasets.getdf()
-
-    tab = tab[tab['name']==tablename]['id']
+    tab = CAX_TABLES[CAX_TABLES['name']==tablename]['id']
 
     return tab.values
 
@@ -133,5 +133,6 @@ def dict_to_json(fargs):
     """    
     # The CAX API requires that the filter be in a specific format
     array = [ {'field' : i, 'value' : fargs[i], 'type': 'string' if len(as_list(fargs[i]))<2 else 'list'}  for i in fargs]
-
-    return json.dumps(array)
+    json_string = json.dumps(array, default=lambda x: x.item() if isinstance(x, np.generic) else x)
+    
+    return json_string

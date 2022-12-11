@@ -1,3 +1,3 @@
-from .tables import TablesResponse, get, tableid, dict_to_json
+from .tables import TablesResponse, get, getdf, tableid, dict_to_json
 
-__all__ = ["get", "tableid", "dict_to_json", "TablesResponse"]
+__all__ = ["get", "getdf", "tableid", "dict_to_json", "TablesResponse"]

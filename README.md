@@ -34,8 +34,6 @@ python -m pytest -rxs --cov=pyCAX tests
 ```
 
 
-
-
 ## Documentation
 
 The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.github.io/pyCAX](https://nwfsc-math-bio.github.io/pyCAX).
@@ -44,10 +42,9 @@ The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.git
 
 `pyCAX` is split up into modules for each of the groups of API methods.
 
-+ `hli_xport` - Get HLI tables in the format of the Tabular Query.
-+ `hli` - Get base HLI tables.
-+ `tables` - Get metadata of tables
-+ `utils` - Utility functions
++ `hli` - Get HLI tables.
++ `datasets` - Get metadata of tables
++ `tables` - The workhorse modules for querying tables
 
 ## Sample analysis
 
@@ -57,7 +54,9 @@ Some Jupyter notebook are in the `/notebooks/` directory.
 
 Fork and put in a pull request!
 
+## Credits
 
+This package used the [pyobis](https://github.com/iobis/pyobis) package as a template. The structure of pycax mimics the that package. The [pygbif](https://github.com/gbif/pygbif) package was also used for reference.
 
 <hr>
 

@@ -17,7 +17,7 @@ def test_tables_get():
     """
     tables.get - basic test for data, check type, size and other methods
     """
-    query = tables.get("NOSA", qargs={'limit': 1})
+    query = tables.get("NOSA", args={'limit': 1})
     assert not query.data
     query.execute()
     assert "dict" == query.data.__class__.__name__

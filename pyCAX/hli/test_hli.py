@@ -3,78 +3,46 @@ import requests
 
 from pycax import hli
 
-def test_hli_tablename():
+def test_hli_return_tablename():
     """
-    hli.tablename - test that string returned
+    hli.return_tablename - test that string returned
     """
-    res = hli.tablename("NOSA", "xport")
-    assert "str" == res.__class__.__name__
-    assert 1 == len(res)
+    for val in hli.HLI_SHORT:
+        for tabtype in ['base', 'xport']
+            res = hli.return_tablename(val, tabtype)
+            assert "str" == res.__class__.__name__
+            assert 1 == len(res)
 
-def test_taxa_search_data():
+def test_hli_getdf():
     """
-    taxa.search - basic test for data, check type, size and other methods
+    hli.getdf - test that data frame returned
     """
-    query = taxa.search(scientificname="Mola mola")
-    assert not query.data  # the data is none after query building but before executing
+    df = hli.getdf("NOSA", args={'limit': 1})
+    assert "DataFrame" == df.__class__.__name__
+    assert 1 == df.shape[0]
+    id = df['popid'][0]
+    df = hli.getdf("NOSA", args={'limit': 1}, fargs={'popid':id})
+    assert 1 == df.shape[0]
+    assert id == df['popid'][0]
+    df = hli.getdf("NOSA", tabletype = "base", args={'limit': 1})
+    assert "DataFrame" == df.__class__.__name__
+    assert 1 == df.shape[0]
+    id = df['popid'][0]
+    df = hli.getdf("NOSA", args={'limit': 1}, fargs={'popid':id})
+    assert 1 == df.shape[0]
+    assert id == df['popid'][0]
+
+def test_hli_get():
+    """
+    hli.get - test that get function returns proper types
+    """
+    query = hli.get("NOSA", args={'limit': 2})
+    assert "TablesResponse" == query.__class__.__name__
+    assert not query.data
     query.execute()
     assert "dict" == query.data.__class__.__name__
-    assert list == list(query.data.keys()).__class__
-    assert 2 == len(query.data)
-
-
-def test_taxa_search_url():
-    """
-    taxa.search - basic test for url, url are accessible and
-    mapper_url is None for unsupported methods
-    """
-    query = taxa.search(scientificname="Mola mola")
-    assert requests.get(query.api_url).status_code == 200
-    assert not query.mapper_url
-
-
-def test_taxa_taxon_data():
-    """
-    taxa.taxon - basic test for data, check type, size and other methods
-    """
-    query = taxa.taxon(545439)
-    assert not query.data
-    query.execute()
-    assert dict == query.data.__class__
-    assert 2 == len(query.data)
-    assert list == list(query.data.keys()).__class__
-    assert 545439 == query.data["results"][0]["taxonID"]
-    assert query.to_pandas().__class__.__name__ == "DataFrame"
-
-
-def test_taxa_taxon_url():
-    """
-    taxa.taxon - basic test for url, url are accessible and
-    mapper_url is None for unsupported methods
-    """
-    query = taxa.taxon(545439)
-    assert requests.get(query.api_url).status_code == 200
-    assert not query.mapper_url
-
-
-def test_taxa_annotations_data():
-    """
-    taxa.annotations - basic test for data, check type, size and other methods
-    """
-    query = taxa.annotations(scientificname="Abra")
-    assert not query.data
-    query.execute()
-    assert dict == query.data.__class__
-    assert 2 == len(query.data)
-    assert list == list(query.data.keys()).__class__
-    assert query.to_pandas().__class__.__name__ == "DataFrame"
-
-
-def test_taxa_annotations_url():
-    """
-    taxa.annotations - basic test for url, url are accessible and
-    mapper_url is None for unsupported methods
-    """
-    query = taxa.annotations(scientificname="Abra")
-    assert requests.get(query.api_url).status_code == 200
-    assert not query.mapper_url
+    assert 6 == len(query.data)
+    assert dict == query.data["records"][0].__class__
+    assert int == query.data["records"][0]["popid"].__class__
+    assert str == query.api_url.__class__.__name__
+    assert 2 == len(query.data["records"])

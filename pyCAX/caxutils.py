@@ -4,6 +4,7 @@ Utility functions for internal use across various modules.
 from urllib.parse import urlencode
 
 import requests
+import pkgutil
 import pycax
 
 cax_baseurl = "https://api.streamnet.org/api/v1/"
@@ -89,3 +90,10 @@ def as_list(x):
         return x
     else:
         return [x]
+
+def get_data(filename):
+    # Read the data file
+    data = pkgutil.get_data('pycax', 'data/' + filename)
+
+    # Return the data
+    return data

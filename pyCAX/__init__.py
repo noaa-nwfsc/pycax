@@ -43,16 +43,12 @@ __title__ = "pycax"
 __author__ = "Eli Holmes and Mari Williams"
 __license__ = "MIT"
 
-#from .hli_xport import hli_xport
-#from .hli import hli
+from .hli import hli
 from .datasets import datasets
 from .tables import tables
-#from .utils import utils
 
 __all__ = [
-#    "hli_xport",
-#    "hli",
+    "hli",
     "datasets",
     "tables",
-#    "utils",
 ]

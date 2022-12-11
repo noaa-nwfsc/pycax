@@ -9,4 +9,5 @@ setup(
         "write_to_template": '__version__ = "{version}"',
         "tag_regex": r"^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$",
     },
+    include_package_data=True
 )
