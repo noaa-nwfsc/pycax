@@ -18,7 +18,7 @@ repos:
   rev: 6.0.0
   hooks:
     - id: flake8
-      exclude: ^(docs/source/conf.py|pyCAX/caxissues.py)
+      exclude: ^(docs/source/conf.py|pycax/caxissues.py)
       args: [--max-line-length=105]
 
 - repo: https://github.com/pycqa/isort

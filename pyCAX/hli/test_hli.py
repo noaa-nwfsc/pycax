@@ -1,8 +1,15 @@
 """Tests for taxa module - search methods"""
 import requests
 
-from pyobis import taxa
+from pycax import hli
 
+def test_hli_tablename():
+    """
+    hli.tablename - test that string returned
+    """
+    res = hli.tablename("NOSA", "xport")
+    assert "str" == res.__class__.__name__
+    assert 1 == len(res)
 
 def test_taxa_search_data():
     """

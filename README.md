@@ -24,9 +24,9 @@ Install editable dev version from github for local development. System prerequis
 git clone git@github.com:nwfsc-math-bio/pyCAX.git
 cd pyCAX
 # install
-python -m pip install -r requirements.txt
-python -m pip install -r requirements-dev.txt
-python -m pip install -e .
+python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements-dev.txt
+python3 -m pip install -e .
 # test your installation
 python -m pytest
 # test and generate a coverage report

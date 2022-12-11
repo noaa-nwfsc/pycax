@@ -24,4 +24,4 @@ EXAMPLES.md
 Function_Changes.md
 .vscode
 _build
-pyCAX/_version.py
+pycax/_version.py

@@ -1,22 +1,22 @@
 """
-pyCAX library
+pycax library
 ~~~~~~~~~~~~~~~~~~~~~
 
-pyCAX is a Python client for CAX.
+pycax is a Python client for CAX.
 
 Example usage:
 
 # Import entire library
-import pyCAX
+import pycax
 # or import modules as needed
-## hli_xport
-from pyCAX import hli_xport
 ## hli
-from pyCAX import hli
+from pycax import hli
 ## tables
-from pyCAX import tables
+from pycax import tables
+## datasets (a table of the available data sets)
+from pycax import datasets
 ## utils
-from pyCAX import utils
+from pycax import utils
 
 ## use advanced logging
 ### setup first
@@ -30,8 +30,8 @@ requests_log = logging.getLogger("requests.packages.urllib3")
 requests_log.setLevel(logging.DEBUG)
 requests_log.propagate = True
 ### then make request
-#from pyCAX import hli_xport
-#occurrence.search(geometry='POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))')
+#from pycax import hli
+#hli.get(fargs={'popid': 7})
 """
 
 try:
@@ -39,18 +39,20 @@ try:
 except ImportError:
     __version__ = "unknown"
 
-__title__ = "pyCAX"
+__title__ = "pycax"
 __author__ = "Eli Holmes and Mari Williams"
 __license__ = "MIT"
 
-from .hli_xport import hli_xport
-from .hli import hli
+#from .hli_xport import hli_xport
+#from .hli import hli
+from .datasets import datasets
 from .tables import tables
-from .utils import utils
+#from .utils import utils
 
 __all__ = [
-    "hli_xport",
-    "hli",
+#    "hli_xport",
+#    "hli",
+    "datasets",
     "tables",
-    "utils",
+#    "utils",
 ]

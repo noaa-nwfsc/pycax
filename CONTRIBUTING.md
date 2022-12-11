@@ -1,4 +1,4 @@
-# Contributing to pyCAX
+# Contributing to pycax
 
 ## We Develop with GitHub
 We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.

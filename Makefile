@@ -9,10 +9,10 @@ install:
 	python -m pip install -e .
 
 test:
-	nosetests -v --with-coverage --cover-package=pyCAX
+	nosetests -v --with-coverage --cover-package=pycax
 
 test3:
-	python3 -m "nose" -v --with-coverage --cover-package=pyCAX
+	python3 -m "nose" -v --with-coverage --cover-package=pycax
 
 docs:
 	cd docs;\
