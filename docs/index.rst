@@ -1,5 +1,5 @@
 pycax
-======
+=====
 
 |pypi| |docs|
 
@@ -35,16 +35,16 @@ Library API
 
 * ``datasets`` - The tables available for download with metadata.
 * ``tables`` - Download an individual table given its name (as in the datasets table)
-* ``hli`` - Download a HLI table in either "XPort" or base format. "XPort" is the same as the CAP Tabular Query.
+* ``hli`` - Download a HLI table in either "XPort" (default) or base format. "XPort" is the same as the CAP Tabular Query.
 
-For accessing the HLI tables, you only need to import the hli module. A maximum of 1000 rows of data are downloaded (by default).
+For accessing the HLI tables, you only need to import the `hli` module. A maximum of 1000 rows of data are downloaded (by default).
 Typically you will want to filter the query by passing in `fargs` as dictionary with the column name values. For example,
 `{'popid': 7}` would return popid equal to 7 only.
 
 Examples of functions returning the data as a pandas data frame are shown.
 
 HLI module
-###########
+##########
 
 .. code-block:: python
 
@@ -55,7 +55,7 @@ HLI module
 
 
 Tables module
-#################
+#############
 
 .. code-block:: python
 
@@ -65,7 +65,7 @@ Tables module
     res.head()
 
 Datasets module
-##############
+###############
 
 .. code-block:: python
 

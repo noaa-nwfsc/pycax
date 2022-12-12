@@ -25,3 +25,8 @@ Function_Changes.md
 .vscode
 _build
 pycax/_version.py
+
+# Locally build documentation
+docs/_build
+
+.DS_Store

@@ -1,33 +1,36 @@
-.. _taxa:
+.. _tables:
 
-taxa module
-===========
+tables module
+=============
 
-.. py:module:: pyobis.taxa
+.. py:module:: pycax.tables
 
-.. autoclass:: TaxaResponse
+.. autoclass:: TablesResponse
 
 Usage
 #####
 
 .. code-block:: python
 
-    from pyobis import taxa
+    from pycax import tables
 
-    query = taxa.search(scientificname="Mola mola")
+    query = tables.get("NOSA", args={'limit': 2})
     query.execute()
     query.data  # Returns the data
     query.api_url  # Returns the API URL
     query.to_pandas()  # Returns a pandas DataFrame
 
-    data = taxa.search(scientificname="Mola mola").execute()
-    taxa.search(geometry="POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))")
-    taxa.taxon(10332)
-    taxa.taxon(127405)
+    # Download one record as a data frame
+    df = tables.getdf("NOSA", args={'limit': 1})
+    id = df['popid'][0]
+    # Download a data frame using a filter. Here only return popid = 7
+    filt = {'popid': id}
+    df = tables.getdf("NOSA", fargs=filt)
 
 Methods:
 ########
 
-.. autofunction:: search
-.. autofunction:: taxon
-.. autofunction:: annotations
+.. autofunction:: get
+.. autofunction:: getdf
+.. autofunction:: tableid
+.. autofunction:: dict_to_json

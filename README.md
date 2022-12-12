@@ -7,30 +7,17 @@
 [![tests](https://github.com/iobis/pyobis/actions/workflows/tests.yml/badge.svg)](https://github.com/iobis/pyobis/actions/workflows/tests.yml)
 -->
 
-`pyCAX` is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries.
+`pycax` is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. `pycax` was developed by the Northwest Fisheries Science Center Math Bio Program.
 
-[Source on GitHub at nwfsc-math-bio/pyCAX](https://github.com/nwfsc-math-bio/pyCAX)
+NWFSC Math Bio CAX REST API clients:
+
+* Python client: [pycax on GitHub at nwfsc-math-bio/pyCAX](https://github.com/nwfsc-math-bio/pyCAX)
+* R client: [rCAX on GitHub at nwfsc-math-bio/rCAX](https://github.com/nwfsc-math-bio/rCAX)
 
 ## Installation
 
 ```bash
 pip install git+git://github.com/nwfsc-math-bio/pyCAX.git#egg=pyCAX
-```
-
-Install editable dev version from github for local development. System prerequisites: python3, conda
-
-```bash
-# fetch code
-git clone git@github.com:nwfsc-math-bio/pyCAX.git
-cd pyCAX
-# install
-python3 -m pip install -r requirements.txt
-python3 -m pip install -r requirements-dev.txt
-python3 -m pip install -e .
-# test your installation
-python3 -m pytest
-# test and generate a coverage report
-python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 ```
 
 
@@ -40,7 +27,7 @@ The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.git
 
 ## Library API
 
-`pyCAX` is split up into modules for each of the groups of API methods.
+`pycax` is split up into modules for each of the groups of API methods.
 
 + `hli` - Get HLI tables.
 + `datasets` - Get metadata of tables
@@ -48,15 +35,35 @@ The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.git
 
 ## Sample analysis
 
-Some Jupyter notebook are in the `/notebooks/` directory.
+Some Jupyter notebooks are in the `/notebooks/` directory.
 
 ## Contributing
 
 Fork and put in a pull request!
 
+To install editable dev version from github for local development. System prerequisites: python3, conda. Note replace `python3` with `python` if your Python installation points to 3+. `requirements-dev.txt` includes all the requirements needed for local development, testing and documentation building.
+
+```bash
+# fetch code
+git clone git@github.com:nwfsc-math-bio/pyCAX.git
+cd pyCAX
+# install the requirements
+python3 -m pip install -r requirements.txt
+python3 -m pip install -r requirements-dev.txt
+# After making changes, reinstall using
+python3 -m pip install -e .
+# test your installation
+python3 -m pytest
+# test and generate a coverage report
+python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
+# make the documentation in docs/html
+cd docs # pyCAX/docs
+make clean html linkcheck
+```
+
 ## Credits
 
-This package used the [pyobis](https://github.com/iobis/pyobis) package as a template. The structure of pycax mimics the that package. The [pygbif](https://github.com/gbif/pygbif) package was also used for reference.
+Thanks to the developers of [pyobis](https://github.com/iobis/pyobis) package who created a package that was easy to use as a full template for a REST API client with tests, documentation files, and GitHub Actions and included the instructions and requirments for local development. as a template. The structure of pycax mimics `pyobis` struction but was adapted and changed for the CAX API. The [pygbif](https://github.com/gbif/pygbif) package is similar (and seems to have influenced pyobis). `pygbif` source was used for reference and study though no code directly used. Some `pygbif` code may appear in `pycax` if pyobis used `pygbif` functions for reference. Noteably the Sphinx documentation configuration files seem to originate from `pygbif`.
 
 <hr>
 

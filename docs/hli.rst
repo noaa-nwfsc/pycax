@@ -1,38 +1,28 @@
-.. _occurrences:
+.. _hli:
 
-occurrences module
-==================
+hli module
+==========
 
-.. py:module:: pyobis.occurrences
-
-.. autoclass:: OccResponse
+.. py:module:: pycax.hli
 
 Usage
 #####
 
 .. code-block:: python
 
-    from pyobis import occurrences
+    from pycax import hli
 
-    query = occurrences.search(scientificname="Mola mola")
-    query.execute()
-    query.data  # Returns the data
-    query.api_url  # Returns the OBIS API URL
-    query.mapper_url  # Returns the OBIS Mapper URL
-
-    data = occurrences.search(scientificname="Mola mola", size=10).execute()
-    occurrences.search(
-        geometry="POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))", size=20
-    )
-
+    # Download one record as a data frame
+    df = hli.getdf("NOSA", args={'limit': 1})
+    id = df['popid'][0]
+    # Download a data frame using a filter
+    filt = {'popid': id}
+    df = hli.getdf("NOSA", fargs=filt)
+ 
 Methods:
 ########
 
-.. autofunction:: search
 .. autofunction:: get
-.. autofunction:: grid
-.. autofunction:: getpoints
-.. autofunction:: point
-.. autofunction:: tile
-.. autofunction:: centroid
-.. autofunction:: lookup_taxon
+.. autofunction:: getdf
+.. autofunction:: return_tablename
+

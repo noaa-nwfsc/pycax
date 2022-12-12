@@ -1,28 +1,29 @@
-.. _dataset:
+.. _datasets:
 
-dataset module
-================
+datasets module
+===============
 
-.. py:module:: pyobis.dataset
+.. py:module:: pycax.datasets
 
-.. autoclass:: DatasetResponse
+.. autoclass:: DatasetsResponse
 
 Usage
 #####
 
 .. code-block:: python
 
-    from pyobis import dataset
+    from pycax import datasets
 
-    query = dataset.search(args, **kwargs)  # Build the Query
+    query = datasets.get()  # Build the Query
     query.execute()  # Execute the Query
     query.data  # Returns the data
 
-    # or build and execute at the same time
-    data = dataset.search(args, **kwargs).execute()
+    # or return a data frame directly
+    df = datasets.getdf()
+    df.head()
 
 Methods:
 ########
 
 .. autofunction:: get
-.. autofunction:: search
+.. autofunction:: getdf
