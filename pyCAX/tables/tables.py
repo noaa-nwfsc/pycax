@@ -10,13 +10,12 @@ import pandas as pd
 import numpy as np
 import requests
 
-from ..caxutils import (
+from pycax.caxutils import (
     build_api_url, 
-    handle_arrstr, 
-    handle_arrint, 
     cax_baseurl, 
     cax_GET,
     as_list,
+    stop,
 )
 
 from pycax import datasets
@@ -79,6 +78,9 @@ def get(tablename, args={}, fargs={}, **kwargs):
         query.api_url # get the API url
 
     """
+    if not isinstance(fargs, dict):
+        raise TypeError('fargs must be a dictionary; got %s' % type(fargs).__name__)
+
     if len(fargs)>0: args['filter'] = dict_to_json(fargs)
 
     return TablesResponse(tablename, args)
@@ -116,6 +118,8 @@ def tableid(tablename):
         tables.tableid("NOSA")
     """
     tab = CAX_TABLES[CAX_TABLES['name']==tablename]['id']
+    if not 1 == len(tab):
+        stop('Something wrong; no table id returned. Did you misspell the table name?')
 
     return tab.values
 

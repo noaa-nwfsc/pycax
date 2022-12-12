@@ -8,10 +8,9 @@ def test_hli_return_tablename():
     hli.return_tablename - test that string returned
     """
     for val in hli.HLI_SHORT:
-        for tabtype in ['base', 'xport']
+        for tabtype in ['base', 'xport']:
             res = hli.return_tablename(val, tabtype)
             assert "str" == res.__class__.__name__
-            assert 1 == len(res)
 
 def test_hli_getdf():
     """
@@ -44,5 +43,18 @@ def test_hli_get():
     assert 6 == len(query.data)
     assert dict == query.data["records"][0].__class__
     assert int == query.data["records"][0]["popid"].__class__
-    assert str == query.api_url.__class__.__name__
+    assert str == query.api_url.__class__
     assert 2 == len(query.data["records"])
+
+import unittest
+
+class MyTestCase(unittest.TestCase):
+    def test_hli_return_tablename_exception(self):
+        self.assertRaises(ValueError, hli.return_tablename, "badname", "xport")
+
+    def test_hli_return_tablename_tabletype_exception(self):
+        self.assertRaises(ValueError, hli.return_tablename, "NOSA", "badname")
+
+    def test_hli_get_exception(self):
+        self.assertRaises(TypeError, hli.get, "NOSA", **{'fargs': 'a'})
+

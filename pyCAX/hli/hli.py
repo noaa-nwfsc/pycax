@@ -5,7 +5,7 @@ Query for a HLI base or XPort table
 """
 import pandas as pd
 
-from ..caxutils import get_data
+from pycax.caxutils import get_data
 
 from pycax import tables
 
@@ -74,7 +74,7 @@ def get(hli, tabletype="xport", args={}, fargs={}, **kwargs):
 
     """
     if not isinstance(fargs, dict):
-        raise TypeError('farg must be a dictionary; got %s' % type(fargs).__name__)
+        raise TypeError('fargs must be a dictionary; got %s' % type(fargs).__name__)
     tablename = return_tablename(hli, tabletype)
     if len(fargs)>1: args['filter'] = tables.dict_to_json(fargs)
 

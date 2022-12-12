@@ -44,46 +44,12 @@ def cax_GET(url, args, **kwargs):
     return out.json()
     
 
-def cax_write_disk(url, path, **kwargs):
-    out = requests.get(url, stream=True, **kwargs)
-    out.raise_for_status()
-    with open(path, "wb") as f:
-        for chunk in out.iter_content(chunk_size=1024):
-            if chunk:
-                f.write(chunk)
-    return path
-
-
 def stopifnot(x, ctype="application/json;charset=utf-8"):
     if x != ctype:
         raise NoResultException("content-type did not equal " + str(ctype))
 
-
 def stop(x):
     raise ValueError(x)
-
-
-def handle_arrstr(x):
-    """Converts array arguments into comma-separated strings if applicable."""
-    if x.__class__.__name__ == "NoneType":
-        pass
-    else:
-        if x.__class__.__name__ == "str":
-            return x
-        else:
-            return ",".join(x)
-
-
-def handle_arrint(x):
-    """Converts array arguments into comma-separated integers if applicable."""
-    if x.__class__.__name__ == "NoneType":
-        pass
-    else:
-        if x.__class__.__name__ == "int":
-            return x
-        else:
-            x = list(map(str, x))
-            return ",".join(x)
 
 def as_list(x):
     if type(x) is list:

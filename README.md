@@ -28,9 +28,9 @@ python3 -m pip install -r requirements.txt
 python3 -m pip install -r requirements-dev.txt
 python3 -m pip install -e .
 # test your installation
-python -m pytest
+python3 -m pytest
 # test and generate a coverage report
-python -m pytest -rxs --cov=pyCAX tests
+python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 ```
 
 

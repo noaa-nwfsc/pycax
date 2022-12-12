@@ -3,12 +3,13 @@ import requests
 
 from pycax import datasets
 
-from ..caxutils import cax_api_key
+from pycax.caxutils import cax_api_key
 
 
 def test_datasets_get_data():
     "datasets.get - test data"
     query = datasets.get()
+    assert "DatasetsResponse" == query.__class__.__name__
     assert not query.data
     query.execute()
     assert query.data.__class__.__name__ == "dict"
@@ -17,11 +18,12 @@ def test_datasets_get_data():
     assert query.to_pandas().__class__.__name__ == "DataFrame"
 
 def test_datasets_get_url():
+    "datasets.get - test api_url"
     query = datasets.get()
     assert requests.get(query.api_url, params = {'XApiKey': cax_api_key}).status_code == 200
 
 def test_datasets_getdf_result():
-    "datasets.pdget - test result"
+    "datasets.getdf - test result"
     res = datasets.getdf()
     assert res.__class__.__name__ == "DataFrame"
 

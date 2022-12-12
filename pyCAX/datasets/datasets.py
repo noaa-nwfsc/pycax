@@ -4,7 +4,7 @@ ca/tables/ API endpoints. These are the available data sets with meta data, e.g.
 
 import pandas as pd
 
-from ..caxutils import build_api_url, handle_arrstr, cax_baseurl, cax_GET, make_ua
+from pycax.caxutils import build_api_url, cax_baseurl, cax_GET
 
 def get(args={}, **kwargs):
     """
@@ -38,7 +38,7 @@ def getdf(args={}, **kwargs):
         datasets.getdf()
     """
     query = get(args=args, **kwargs)
-    res = query.execute()
+    query.execute()
    
     return query.to_pandas()
 
