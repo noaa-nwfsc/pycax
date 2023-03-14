@@ -16,6 +16,14 @@ NWFSC Math Bio CAX REST API clients:
 
 ## Installation
 
+From pypi
+
+```bash
+pip install pygbif
+```
+
+Development version
+
 ```bash
 pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax
 ```
