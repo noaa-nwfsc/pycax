@@ -1,4 +1,4 @@
-# pyCAX
+# pycax
 
 <!--
 [![pypi](https://img.shields.io/pypi/v/pyobis.svg)](https://pypi.python.org/pypi/pyobis)
