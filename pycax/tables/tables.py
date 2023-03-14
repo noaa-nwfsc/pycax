@@ -59,7 +59,7 @@ class TablesResponse:
         return pd.DataFrame(self.data["records"])
 
 
-def get(tablename, args={}, fargs={}, **kwargs):
+def get(tablename, qargs={}, fargs={}, **kwargs):
     """
     Get a table using the table name from /ca/tables API
 
@@ -78,28 +78,31 @@ def get(tablename, args={}, fargs={}, **kwargs):
         query.api_url # get the API url
 
     """
+    if not isinstance(qargs, dict):
+        raise TypeError('qargs must be a dictionary; got %s' % type(qargs).__name__)
+
     if not isinstance(fargs, dict):
         raise TypeError('fargs must be a dictionary; got %s' % type(fargs).__name__)
 
-    if len(fargs)>0: args['filter'] = dict_to_json(fargs)
+    if len(fargs)>0: qargs['filter'] = dict_to_json(fargs)
 
-    return TablesResponse(tablename, args)
+    return TablesResponse(tablename, qargs)
 
 
-def getdf(tablename, args={}, fargs={}, **kwargs):
+def getdf(tablename, qargs={}, fargs={}, **kwargs):
     """
     Make table query and return a pandas DataFrame
 
-    :param args: [dict] a dictionary of query parameters. The default is no parameters which returns the full table.
+    :param qargs: [dict] a dictionary of query parameters. The default is no parameters which returns the full table.
     :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.
     :return: A pandas DataFrame
 
     Usage::
 
         from pycax import tables
-        tables.getdf()
+        tables.getdf('EscData')
     """
-    query = get(tablename, args=args, fargs=fargs, **kwargs)
+    query = get(tablename, qargs=qargs, fargs=fargs, **kwargs)
     res = query.execute()
    
     return query.to_pandas()
