@@ -30,3 +30,4 @@ pycax/_version.py
 docs/_build
 
 .DS_Store
+.Rproj.user
