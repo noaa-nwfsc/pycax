@@ -1,4 +1,4 @@
-"""Tests for taxa module - search methods"""
+"""Tests for hli module"""
 import requests
 
 from pycax import hli
