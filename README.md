@@ -7,23 +7,23 @@
 [![tests](https://github.com/iobis/pyobis/actions/workflows/tests.yml/badge.svg)](https://github.com/iobis/pyobis/actions/workflows/tests.yml)
 -->
 
-`pycax` is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. `pycax` was developed by the Northwest Fisheries Science Center Math Bio Program.
+pycax is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. pycax was developed by the Northwest Fisheries Science Center Math Bio Program.
 
 NWFSC Math Bio CAX REST API clients:
 
-* Python client: [pycax on GitHub at nwfsc-math-bio/pyCAX](https://github.com/nwfsc-math-bio/pyCAX)
+* Python client: [pycax on GitHub at nwfsc-math-bio/pyCAX](https://github.com/nwfsc-math-bio/pycax)
 * R client: [rCAX on GitHub at nwfsc-math-bio/rCAX](https://github.com/nwfsc-math-bio/rCAX)
 
 ## Installation
 
 ```bash
-pip install git+git://github.com/nwfsc-math-bio/pyCAX.git#egg=pyCAX
+pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax
 ```
 
 
 ## Documentation
 
-The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.github.io/pyCAX](https://nwfsc-math-bio.github.io/pyCAX).
+The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.github.io/pycax](https://nwfsc-math-bio.github.io/pycax).
 
 ## Library API
 
@@ -45,8 +45,8 @@ To install editable dev version from github for local development. System prereq
 
 ```bash
 # fetch code
-git clone git@github.com:nwfsc-math-bio/pyCAX.git
-cd pyCAX
+git clone git@github.com:nwfsc-math-bio/pycax.git
+cd pycax
 # install the requirements
 python3 -m pip install -r requirements.txt
 python3 -m pip install -r requirements-dev.txt
@@ -57,13 +57,13 @@ python3 -m pytest
 # test and generate a coverage report
 python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 # make the documentation in docs/html
-cd docs # pyCAX/docs
+cd docs # pycax/docs
 make clean html linkcheck
 ```
 
 ## Credits
 
-Thanks to the developers of [pyobis](https://github.com/iobis/pyobis) package who created a package that was easy to use as a full template for a REST API client with tests, documentation files, and GitHub Actions and included the instructions and requirments for local development. as a template. The structure of pycax mimics `pyobis` struction but was adapted and changed for the CAX API. The [pygbif](https://github.com/gbif/pygbif) package is similar (and seems to have influenced pyobis). `pygbif` source was used for reference and study though no code directly used. Some `pygbif` code may appear in `pycax` if pyobis used `pygbif` functions for reference. Noteably the Sphinx documentation configuration files seem to originate from `pygbif`.
+Thanks to the developers of [pyobis](https://github.com/iobis/pyobis) package who created a package that was easy to use as a full template for a REST API client with tests, documentation files, and GitHub Actions and included the instructions and requirements for local development. The structure of pycax mimics pyobis struction but was adapted and changed for the CAX API. The [pygbif](https://github.com/gbif/pygbif) package is similar (and seems to have influenced pyobis). pygbif source was used for reference and study though no code directly used. Some pygbif code may appear in pycax if pyobis used pygbif functions for reference. Noteably the Sphinx documentation configuration files seem to originate from pygbif.
 
 <hr>
 
