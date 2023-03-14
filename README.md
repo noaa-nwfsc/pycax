@@ -11,7 +11,7 @@ pycax is an Python client for the [Coordinated Assessments API](https://www.stre
 
 NWFSC Math Bio CAX REST API clients:
 
-* Python client: [pycax on GitHub at nwfsc-math-bio/pyCAX](https://github.com/nwfsc-math-bio/pycax)
+* Python client: [pycax on GitHub at nwfsc-math-bio/pycax](https://github.com/nwfsc-math-bio/pycax)
 * R client: [rCAX on GitHub at nwfsc-math-bio/rCAX](https://github.com/nwfsc-math-bio/rCAX)
 
 ## Installation
