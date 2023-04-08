@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tables module &mdash; pycax 0.1.dev29+gbe05dc4.d20230408 documentation</title>
+  <title>tables module &mdash; pycax 0.1.1.dev7+ge596181 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,6 +12,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -33,7 +36,7 @@
             pycax
           </a>
               <div class="version">
-                0.1.dev29+gbe05dc4.d20230408
+                0.1.1.dev7+ge596181
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -119,14 +122,14 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.get" title="Permalink to this definition"></a></dt>
 <dd><p>Get a table using the table name from /ca/tables API</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tablename</strong> – [String] A table name listed in the datasets table</p></li>
 <li><p><strong>qargs</strong> – [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</p></li>
 <li><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionary of class TableResponse ready for execution</p>
 </dd>
 </dl>
@@ -145,13 +148,13 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">getdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#getdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.getdf" title="Permalink to this definition"></a></dt>
 <dd><p>Make table query and return a pandas DataFrame</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>qargs</strong> – [dict] a dictionary of query parameters. The default is no parameters which returns the full table.</p></li>
 <li><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A pandas DataFrame</p>
 </dd>
 </dl>
@@ -167,10 +170,10 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">tableid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#tableid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.tableid" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieve a table id given a tablename</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>tablename</strong> – [String] table name from pycax.tables.getdf()[“name”]</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A table id as an array of length 1 with id as a string</p>
 </dd>
 </dl>
@@ -186,10 +189,10 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">dict_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#dict_to_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.dict_to_json" title="Permalink to this definition"></a></dt>
 <dd><p>Convert a dictionary to JSON format for CAX API: field, value, string format</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>JSON for the filter in the format that CAX API wants: ‘[{“field”: “popid”, “value”: 7, “type”: “string”}]’</p>
 </dd>
 </dl>
