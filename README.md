@@ -1,6 +1,6 @@
 # pycax
 
-[![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.ic/pycax)
+[![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.io/pycax)
 [![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
 
 <!--
@@ -46,7 +46,7 @@ The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.git
 
 ## Sample analysis
 
-Some Jupyter notebooks are in the `/notebooks/` directory.
+Some Jupyter notebooks are in the [notebooks](https://github.com/nwfsc-math-bio/pycax/tree/main/notebooks) directory.
 
 ## Contributing
 
