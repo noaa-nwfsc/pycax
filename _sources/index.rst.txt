@@ -1,7 +1,9 @@
 pycax |version|
 =====
 
-|pypi| |docs| |coverage|
+.. |pypi| 
+
+|docs| |coverage|
 
 Python client for the `StreamNet REST API
 <https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/>`__.
@@ -28,6 +30,10 @@ dev version
 
     pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax-client
 
+Examples
+===========
+
+* user_guide `Jupyter notebook <https://github.com/nwfsc-math-bio/pycax/tree/main/notebooks>`
 
 Library API
 ===========
