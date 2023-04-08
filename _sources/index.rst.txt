@@ -93,7 +93,7 @@ Meta
    :target: https://nwfsc-math-bio.github.io/pycax
    
 .. |coverage| image:: https://nwfsc-math-bio.github.io/pycax/coverage.svg
-   :target: https://nwfsc-math-bio.github.io/pycax/codecoverage
+   :target: https://nwfsc-math-bio.github.io/pycax/_codecoverage/index.html
 
 
 
