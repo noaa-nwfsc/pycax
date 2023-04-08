@@ -59,7 +59,7 @@ html:
 	
 codecov:
 	python3 -m pytest -rxs --cov=pycax --cov-report term-missing ../pycax
-	@coverage html -d $(BUILDDIR)/html/codecoverage
+	@coverage html -d $(BUILDDIR)/html/_codecoverage
 	@coverage-badge -o $(BUILDDIR)/html/coverage.svg
 	@echo
 	@echo "Code coverage finished. The HTML pages are in $(BUILDDIR)/html/codecoverage."
