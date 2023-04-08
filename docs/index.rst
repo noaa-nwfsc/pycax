@@ -3,8 +3,8 @@ pycax
 
 |pypi| |docs|
 
-Python client for the `CAX API
-<https://api.streamnet.org/api/v1>`__.
+Python client for the `StreamNet REST API
+<https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/>`__.
 
 `Source on GitHub at nwfsc-math-bio/pycax <https://github.com/nwfsc-math-bio/pycax>`__
 
@@ -15,9 +15,10 @@ Other CAX clients:
 Installation
 ============
 
-from pypi
+.. 
+   from pypi
 
-.. code-block:: console
+   .. code-block:: console
 
     pip install pycax
 

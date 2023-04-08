@@ -1,4 +1,4 @@
-# pyobis documentation build configuration file, based on
+# pycax documentation build configuration file, based on
 # sphinx-quickstart on Sun, 2015 Nov 10 00:54:02.
 #
 # This file is execfile()d with the current directory set to its
@@ -263,7 +263,7 @@ texinfo_documents = [
         "pycax Documentation",
         author,
         "pycax",
-        "One line description of project.",
+        "An Python client for the CAP API.",
         "Miscellaneous",
     ),
 ]
