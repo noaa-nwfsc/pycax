@@ -20,13 +20,13 @@ Installation
 
    .. code-block:: console
 
-    pip install pycax
+    pip install pycax-client
 
 dev version
 
 .. code-block:: console
 
-    pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax
+    pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax-client
 
 
 Library API

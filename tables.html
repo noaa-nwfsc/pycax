@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tables module &mdash; pycax 0.1.dev25+g260759d documentation</title>
+  <title>tables module &mdash; pycax 0.1.dev29+gbe05dc4.d20230408 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,9 +12,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +26,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pycax
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pycax
           </a>
               <div class="version">
-                0.1.dev25+g260759d
+                0.1.dev29+gbe05dc4.d20230408
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,8 +46,15 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="hli.html">hli module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">tables module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pycax.tables.TablesResponse"><code class="docutils literal notranslate"><span class="pre">TablesResponse</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#methods">Methods:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods">Methods:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.tables.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.tables.getdf"><code class="docutils literal notranslate"><span class="pre">getdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.tables.tableid"><code class="docutils literal notranslate"><span class="pre">tableid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.tables.dict_to_json"><code class="docutils literal notranslate"><span class="pre">dict_to_json()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">datasets module</a></li>
@@ -64,8 +74,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>tables module</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">tables module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tables.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -76,7 +86,7 @@
            <div itemprop="articleBody">
              
   <section id="module-pycax.tables">
-<span id="tables-module"></span><span id="tables"></span><h1>tables module<a class="headerlink" href="#module-pycax.tables" title="Permalink to this headline"></a></h1>
+<span id="tables-module"></span><span id="tables"></span><h1>tables module<a class="headerlink" href="#module-pycax.tables" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pycax.tables.TablesResponse">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">TablesResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#TablesResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.TablesResponse" title="Permalink to this definition"></a></dt>
@@ -84,17 +94,17 @@
 </dd></dl>
 
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">tables</span>
 
-<span class="n">query</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span class="n">query</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 <span class="n">query</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># Returns the data</span>
 <span class="n">query</span><span class="o">.</span><span class="n">api_url</span>  <span class="c1"># Returns the API URL</span>
 <span class="n">query</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>  <span class="c1"># Returns a pandas DataFrame</span>
 
 <span class="c1"># Download one record as a data frame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="nb">id</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;popid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># Download a data frame using a filter. Here only return popid = 7</span>
 <span class="n">filt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">}</span>
@@ -103,20 +113,20 @@
 </div>
 </section>
 <section id="methods">
-<h2>Methods:<a class="headerlink" href="#methods" title="Permalink to this headline"></a></h2>
+<h2>Methods:<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pycax.tables.get">
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.get" title="Permalink to this definition"></a></dt>
 <dd><p>Get a table using the table name from /ca/tables API</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>tablename</strong> – [String] A table name listed in the datasets table</p></li>
 <li><p><strong>qargs</strong> – [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</p></li>
 <li><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dictionary of class TableResponse ready for execution</p>
 </dd>
 </dl>
@@ -135,13 +145,13 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">getdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#getdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.getdf" title="Permalink to this definition"></a></dt>
 <dd><p>Make table query and return a pandas DataFrame</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>qargs</strong> – [dict] a dictionary of query parameters. The default is no parameters which returns the full table.</p></li>
 <li><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A pandas DataFrame</p>
 </dd>
 </dl>
@@ -157,10 +167,10 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">tableid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tablename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#tableid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.tableid" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieve a table id given a tablename</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>tablename</strong> – [String] table name from pycax.tables.getdf()[“name”]</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A table id as an array of length 1 with id as a string</p>
 </dd>
 </dl>
@@ -176,10 +186,10 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.tables.</span></span><span class="sig-name descname"><span class="pre">dict_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/tables/tables.html#dict_to_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.tables.dict_to_json" title="Permalink to this definition"></a></dt>
 <dd><p>Convert a dictionary to JSON format for CAX API: field, value, string format</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>JSON for the filter in the format that CAX API wants: ‘[{“field”: “popid”, “value”: 7, “type”: “string”}]’</p>
 </dd>
 </dl>

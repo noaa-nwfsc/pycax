@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hli module &mdash; pycax 0.1.dev25+g260759d documentation</title>
+  <title>hli module &mdash; pycax 0.1.dev29+gbe05dc4.d20230408 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,9 +12,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +26,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pycax
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pycax
           </a>
               <div class="version">
-                0.1.dev25+g260759d
+                0.1.dev29+gbe05dc4.d20230408
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,7 +46,12 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">hli module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#methods">Methods:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods">Methods:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.hli.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.hli.getdf"><code class="docutils literal notranslate"><span class="pre">getdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pycax.hli.return_tablename"><code class="docutils literal notranslate"><span class="pre">return_tablename()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tables.html">tables module</a></li>
@@ -64,8 +72,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>hli module</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">hli module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/hli.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -76,13 +84,13 @@
            <div itemprop="articleBody">
              
   <section id="module-pycax.hli">
-<span id="hli-module"></span><span id="hli"></span><h1>hli module<a class="headerlink" href="#module-pycax.hli" title="Permalink to this headline"></a></h1>
+<span id="hli-module"></span><span id="hli"></span><h1>hli module<a class="headerlink" href="#module-pycax.hli" title="Permalink to this heading"></a></h1>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
 
 <span class="c1"># Download one record as a data frame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="nb">id</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;popid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># Download a data frame using a filter</span>
 <span class="n">filt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">}</span>
@@ -91,27 +99,27 @@
 </div>
 </section>
 <section id="methods">
-<h2>Methods:<a class="headerlink" href="#methods" title="Permalink to this headline"></a></h2>
+<h2>Methods:<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pycax.hli.get">
-<span class="sig-prename descclassname"><span class="pre">pycax.hli.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xport'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/hli/hli.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.hli.get" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pycax.hli.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xport'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/hli/hli.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.hli.get" title="Permalink to this definition"></a></dt>
 <dd><p>Get a table using the table name from /ca/tables API: pycax.datasets.getdf()</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>hli</strong> – [String] A HLI short code: NOSA, SAR, PNI, JuvOut, PreSmolt, RperS</p></li>
-<li><p><strong>tabletype</strong> – [String] ‘base’ or ‘xport’</p></li>
-<li><p><strong>args</strong> – [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</p></li>
+<li><p><strong>tabletype</strong> – [String] ‘base’ or ‘xport’; default is xport</p></li>
+<li><p><strong>qargs</strong> – [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</p></li>
 <li><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dictionary of class HliResponse ready for execution</p>
 </dd>
 </dl>
 <p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
-<span class="n">query</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="n">query</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 <span class="n">query</span><span class="o">.</span><span class="n">data</span> <span class="c1"># get the data</span>
 <span class="n">query</span><span class="o">.</span><span class="n">api_url</span> <span class="c1"># get the API url</span>
@@ -121,25 +129,25 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pycax.hli.getdf">
-<span class="sig-prename descclassname"><span class="pre">pycax.hli.</span></span><span class="sig-name descname"><span class="pre">getdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xport'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/hli/hli.html#getdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.hli.getdf" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pycax.hli.</span></span><span class="sig-name descname"><span class="pre">getdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xport'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/hli/hli.html#getdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.hli.getdf" title="Permalink to this definition"></a></dt>
 <dd><p>Get a HLI table and return a data frame sorted in the same order as the HLI Tabular Query</p>
 <p>This uses the json file for the column names in in the data directory.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>hli</strong> – [String] A HLI short code: NOSA, SAR, PNI, JuvOut, PreSmolt, RperS</p></li>
-<li><p><strong>tabletype</strong> – [String] ‘base’ or ‘xport’</p></li>
-<li><p><strong>args</strong> – [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</p></li>
+<li><p><strong>tabletype</strong> – [String] ‘base’ or ‘xport’; default is xport</p></li>
+<li><p><strong>qargs</strong> – [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</p></li>
 <li><p><strong>fargs</strong> – [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dictionary of class HliResponse ready for execution</p>
 </dd>
 </dl>
 <p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;xport&#39;</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
 <span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -150,13 +158,13 @@
 <span class="sig-prename descclassname"><span class="pre">pycax.hli.</span></span><span class="sig-name descname"><span class="pre">return_tablename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabletype</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycax/hli/hli.html#return_tablename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycax.hli.return_tablename" title="Permalink to this definition"></a></dt>
 <dd><p>Retrieve a table name for a hli short code for base or xport table type</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>hli</strong> – [String] A HLI short code: NOSA, SAR, PNI, JuvOut, PreSmolt, RperS</p></li>
 <li><p><strong>tabletype</strong> – [String] “base” or “xport”</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A table name as a string</p>
 </dd>
 </dl>

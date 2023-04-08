@@ -13,7 +13,7 @@ Usage
     from pycax import hli
 
     # Download one record as a data frame
-    df = hli.getdf("NOSA", args={'limit': 1})
+    df = hli.getdf("NOSA", qargs={'limit': 1})
     id = df['popid'][0]
     # Download a data frame using a filter
     filt = {'popid': id}

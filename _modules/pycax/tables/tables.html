@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pycax.tables.tables &mdash; pycax 0.1.dev25+g260759d documentation</title>
+  <title>pycax.tables.tables &mdash; pycax 0.1.dev29+gbe05dc4.d20230408 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -11,9 +11,8 @@
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -24,14 +23,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pycax
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pycax
           </a>
               <div class="version">
-                0.1.dev25+g260759d
+                0.1.dev29+gbe05dc4.d20230408
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -57,9 +60,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>pycax.tables.tables</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pycax.tables.tables</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -94,12 +97,12 @@
 <span class="n">CAX_TABLES</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">getdf</span><span class="p">()</span>
 
 <div class="viewcode-block" id="TablesResponse"><a class="viewcode-back" href="../../../tables.html#pycax.tables.TablesResponse">[docs]</a><span class="k">class</span> <span class="nc">TablesResponse</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A tables Response Object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialise the object parameters</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
@@ -114,7 +117,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__url</span> <span class="o">=</span> <span class="n">url</span>
   
     <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Execute or fetch the data based on the query</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">cax_GET</span><span class="p">(</span>
@@ -124,14 +127,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
 
     <span class="k">def</span> <span class="nf">to_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert the results into a pandas DataFrame</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="get"><a class="viewcode-back" href="../../../tables.html#pycax.tables.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get a table using the table name from /ca/tables API</span>
 
 <span class="sd">    :param tablename: [String] A table name listed in the datasets table</span>
@@ -161,7 +164,7 @@
 
 
 <div class="viewcode-block" id="getdf"><a class="viewcode-back" href="../../../tables.html#pycax.tables.getdf">[docs]</a><span class="k">def</span> <span class="nf">getdf</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make table query and return a pandas DataFrame</span>
 
 <span class="sd">    :param qargs: [dict] a dictionary of query parameters. The default is no parameters which returns the full table.</span>
@@ -179,7 +182,7 @@
     <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="tableid"><a class="viewcode-back" href="../../../tables.html#pycax.tables.tableid">[docs]</a><span class="k">def</span> <span class="nf">tableid</span><span class="p">(</span><span class="n">tablename</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Retrieve a table id given a tablename</span>
 
 <span class="sd">    :param tablename: [String] table name from pycax.tables.getdf()[&quot;name&quot;]</span>
@@ -198,7 +201,7 @@
     <span class="k">return</span> <span class="n">tab</span><span class="o">.</span><span class="n">values</span></div>
 
 <div class="viewcode-block" id="dict_to_json"><a class="viewcode-back" href="../../../tables.html#pycax.tables.dict_to_json">[docs]</a><span class="k">def</span> <span class="nf">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a dictionary to JSON format for CAX API: field, value, string format</span>
 
 <span class="sd">    :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</span>
