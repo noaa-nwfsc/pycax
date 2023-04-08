@@ -1,7 +1,7 @@
-pycax
+pycax |version|
 =====
 
-|pypi| |docs|
+|pypi| |docs| |coverage|
 
 Python client for the `StreamNet REST API
 <https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/>`__.
@@ -80,11 +80,14 @@ Meta
 
 * License: MIT
 
-.. |pypi| image:: https://img.shields.io/pypi/v/pycax.svg
-   :target: https://pypi.python.org/pypi/pycax
+.. |pypi| image:: https://img.shields.io/pypi-client/v/pycax-client.svg
+   :target: https://pypi.python.org/pypi-client/pycax
 
 .. |docs| image:: https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg
    :target: https://nwfsc-math-bio.github.io/pycax
+   
+.. |coverage| image:: https://nwfsc-math-bio.github.io/pycax/coverage.svg
+   :target: https://nwfsc-math-bio.github.io/pycax/codecoverage
 
 
 

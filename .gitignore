@@ -33,3 +33,4 @@ docs/_build
 .Rproj.user
 *.Rproj
 .Rhistory
+local-push-gh-pages.txt

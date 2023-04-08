@@ -13,6 +13,7 @@ pydocstyle
 pylint
 pytest
 pytest-cov
+coverage-badge
 pytest-flake8
 pytest-sugar
 pytest-xdist

@@ -47,7 +47,8 @@ help:
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
-
+	@echo "  codecov   to run code coverage report"
+  
 clean:
 	rm -rf $(BUILDDIR)/*
 
@@ -55,7 +56,14 @@ html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
-
+	
+codecov:
+	python3 -m pytest -rxs --cov=pycax --cov-report term-missing ../pycax
+	@coverage html -d $(BUILDDIR)/html/codecoverage
+	@coverage-badge -o $(BUILDDIR)/html/coverage.svg
+	@echo
+	@echo "Code coverage finished. The HTML pages are in $(BUILDDIR)/html/codecoverage."
+	
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
