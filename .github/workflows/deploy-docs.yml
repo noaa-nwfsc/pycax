@@ -41,7 +41,7 @@ jobs:
         set -e
         micromamba activate TEST
         pushd docs
-        make clean html linkcheck
+        make clean html codecov linkcheck
         popd
 
     - name: Deploy

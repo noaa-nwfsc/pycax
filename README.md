@@ -1,10 +1,11 @@
 # pycax
 
+[![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.ic/pycax)
+[![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
+
 <!--
 [![pypi](https://img.shields.io/pypi/v/pyobis-client.svg)](https://pypi.python.org/pypi-client/pyobis-client)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pycax-client.svg)](https://anaconda.org/conda-forge/pycax-client)
-[![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.ic/pycax)
-[![tests](https://github.com/iobis/nwfsc-math-bio/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
 -->
 
 pycax is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. pycax was developed by the Northwest Fisheries Science Center Math Bio Program.
@@ -16,11 +17,13 @@ NWFSC Math Bio CAX REST API clients:
 
 ## Installation
 
+<!--
 From pypi
 
 ```bash
 pip install pycax-client
 ```
+-->
 
 Development version
 
@@ -66,7 +69,7 @@ python3 -m pytest
 python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 # make the documentation in docs/_build/html
 cd docs # pycax/docs
-make clean html linkcheck
+make clean html codecov linkcheck
 ```
 
 ## Credits
