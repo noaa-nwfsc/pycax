@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycax.tables.tables &mdash; pycax 0.1.dev25+g260759d documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pycax
+          </a>
+              <div class="version">
+                0.1.dev25+g260759d
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hli.html">hli module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tables.html">tables module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">datasets module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog_link.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pycax</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>pycax.tables.tables</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pycax.tables.tables</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Get a table from the API via table_id</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">from</span> <span class="nn">pycax.caxutils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">build_api_url</span><span class="p">,</span> 
+    <span class="n">cax_baseurl</span><span class="p">,</span> 
+    <span class="n">cax_GET</span><span class="p">,</span>
+    <span class="n">as_list</span><span class="p">,</span>
+    <span class="n">stop</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">CAX_TABLES</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">getdf</span><span class="p">()</span>
+
+<div class="viewcode-block" id="TablesResponse"><a class="viewcode-back" href="../../../tables.html#pycax.tables.TablesResponse">[docs]</a><span class="k">class</span> <span class="nc">TablesResponse</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A tables Response Object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tablename</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise the object parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tablename</span> <span class="o">=</span> <span class="n">tablename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tableid</span> <span class="o">=</span> <span class="n">tableid</span><span class="p">(</span><span class="n">tablename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">args</span><span class="p">[</span><span class="s1">&#39;table_id&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">tableid</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">cax_baseurl</span> <span class="o">+</span> <span class="s2">&quot;ca&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="n">build_api_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        
+        <span class="c1"># private members</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__args</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__url</span> <span class="o">=</span> <span class="n">url</span>
+  
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute or fetch the data based on the query</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">cax_GET</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">out</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">to_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert the results into a pandas DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="get"><a class="viewcode-back" href="../../../tables.html#pycax.tables.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a table using the table name from /ca/tables API</span>
+
+<span class="sd">    :param tablename: [String] A table name listed in the datasets table</span>
+<span class="sd">    :param qargs: [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</span>
+<span class="sd">    :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</span>
+
+<span class="sd">    :return: A dictionary of class TableResponse ready for execution</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pycax import tables</span>
+<span class="sd">        query = tables.get(&#39;EscData&#39;, qargs={&#39;limit&#39;: 1})</span>
+<span class="sd">        query.execute()</span>
+<span class="sd">        query.data # get the data</span>
+<span class="sd">        query.api_url # get the API url</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">qargs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;qargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fargs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;fargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="n">qargs</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">TablesResponse</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="getdf"><a class="viewcode-back" href="../../../tables.html#pycax.tables.getdf">[docs]</a><span class="k">def</span> <span class="nf">getdf</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make table query and return a pandas DataFrame</span>
+
+<span class="sd">    :param qargs: [dict] a dictionary of query parameters. The default is no parameters which returns the full table.</span>
+<span class="sd">    :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</span>
+<span class="sd">    :return: A pandas DataFrame</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pycax import tables</span>
+<span class="sd">        tables.getdf(&#39;EscData&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="n">qargs</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="n">fargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+   
+    <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="tableid"><a class="viewcode-back" href="../../../tables.html#pycax.tables.tableid">[docs]</a><span class="k">def</span> <span class="nf">tableid</span><span class="p">(</span><span class="n">tablename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve a table id given a tablename</span>
+
+<span class="sd">    :param tablename: [String] table name from pycax.tables.getdf()[&quot;name&quot;]</span>
+
+<span class="sd">    :return: A table id as an array of length 1 with id as a string</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pycax import tables</span>
+<span class="sd">        tables.tableid(&quot;NOSA&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">CAX_TABLES</span><span class="p">[</span><span class="n">CAX_TABLES</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">tablename</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">):</span>
+        <span class="n">stop</span><span class="p">(</span><span class="s1">&#39;Something wrong; no table id returned. Did you misspell the table name?&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tab</span><span class="o">.</span><span class="n">values</span></div>
+
+<div class="viewcode-block" id="dict_to_json"><a class="viewcode-back" href="../../../tables.html#pycax.tables.dict_to_json">[docs]</a><span class="k">def</span> <span class="nf">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a dictionary to JSON format for CAX API: field, value, string format</span>
+
+<span class="sd">    :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</span>
+<span class="sd">    :return: JSON for the filter in the format that CAX API wants: &#39;[{&quot;field&quot;: &quot;popid&quot;, &quot;value&quot;: 7, &quot;type&quot;: &quot;string&quot;}]&#39;</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pycax import tables</span>
+<span class="sd">        tables.dict_to_json({&#39;popid&#39;:7})</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="c1"># The CAX API requires that the filter be in a specific format</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span><span class="s1">&#39;field&#39;</span> <span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span> <span class="p">:</span> <span class="n">fargs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">as_list</span><span class="p">(</span><span class="n">fargs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">&lt;</span><span class="mi">2</span> <span class="k">else</span> <span class="s1">&#39;list&#39;</span><span class="p">}</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fargs</span><span class="p">]</span>
+    <span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">generic</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">json_string</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NWFSC Math Bio.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycax &mdash; pycax 0.1.dev25+g260759d documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hli module" href="hli.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> pycax
+          </a>
+              <div class="version">
+                0.1.dev25+g260759d
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="hli.html">hli module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">tables module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">datasets module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pycax</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>pycax</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pycax">
+<h1>pycax<a class="headerlink" href="#pycax" title="Permalink to this headline"></a></h1>
+<p><a class="reference external" href="https://pypi.python.org/pypi/pycax"><img alt="pypi" src="https://img.shields.io/pypi/v/pycax.svg" /></a> <a class="reference external" href="https://nwfsc-math-bio.github.io/pycax"><img alt="docs" src="https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg" /></a></p>
+<p>Python client for the <a class="reference external" href="https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/">StreamNet REST API</a>.</p>
+<p><a class="reference external" href="https://github.com/nwfsc-math-bio/pycax">Source on GitHub at nwfsc-math-bio/pycax</a></p>
+<p>Other CAX clients:</p>
+<ul class="simple">
+<li><p>R: <cite>rCAX</cite>, <a class="reference external" href="https://nwfsc-math-bio.github.io/rCAX">nwfsc-math-bio/rCAX</a></p></li>
+</ul>
+</section>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>dev version</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax</span>
+</pre></div>
+</div>
+</section>
+<section id="library-api">
+<h1>Library API<a class="headerlink" href="#library-api" title="Permalink to this headline"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">pycax</span></code> is split up into modules for the list of tables (/ca/tables) and individual tables (/ca?table_id=…).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">datasets</span></code> - The tables available for download with metadata.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tables</span></code> - Download an individual table given its name (as in the datasets table)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hli</span></code> - Download a HLI table in either “XPort” (default) or base format. “XPort” is the same as the CAP Tabular Query.</p></li>
+</ul>
+<p>For accessing the HLI tables, you only need to import the <cite>hli</cite> module. A maximum of 1000 rows of data are downloaded (by default).
+Typically you will want to filter the query by passing in <cite>fargs</cite> as dictionary with the column name values. For example,
+<cite>{‘popid’: 7}</cite> would return popid equal to 7 only.</p>
+<p>Examples of functions returning the data as a pandas data frame are shown.</p>
+<section id="hli-module">
+<h2>HLI module<a class="headerlink" href="#hli-module" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">tabletype</span><span class="o">=</span><span class="s2">&quot;xport&quot;</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span>  <span class="mi">7</span><span class="p">})</span>
+<span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="tables-module">
+<h2>Tables module<a class="headerlink" href="#tables-module" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">tables</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;EscData&quot;</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span>  <span class="mi">7</span><span class="p">})</span>
+<span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="datasets-module">
+<h2>Datasets module<a class="headerlink" href="#datasets-module" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">getdf</span><span class="p">()</span>
+<span class="n">res</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="meta">
+<h1>Meta<a class="headerlink" href="#meta" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>License: MIT</p></li>
+</ul>
+</section>
+<section id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hli.html">hli module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hli.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hli.html#methods">Methods:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">tables module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#methods">Methods:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">datasets module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#methods">Methods:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog_link.html#id1">0.1.0 (2022-12-11)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h1>
+<p>MIT</p>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hli.html" class="btn btn-neutral float-right" title="hli module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, NWFSC Math Bio.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
