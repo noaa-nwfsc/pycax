@@ -28,7 +28,7 @@ def test_tables_get():
     """
     tables.get - basic test for data, check type, size and other methods
     """
-    query = tables.get("NOSA", args={'limit': 2})
+    query = tables.get("NOSA", qargs={'limit': 2})
     assert "TablesResponse" == query.__class__.__name__
     assert not query.data
     assert str == query.api_url.__class__
@@ -68,17 +68,17 @@ def test_tables_getdf():
     """
     tables.getdf - test that data frame returned
     """
-    df = tables.getdf("NOSA", args={'limit': 1})
+    df = tables.getdf("NOSA", qargs={'limit': 1})
     assert "DataFrame" == df.__class__.__name__
     assert 1 == df.shape[0]
     id = df['popid'][0]
-    df = hli.getdf("NOSA", args={'limit': 1}, fargs={'popid':id})
+    df = hli.getdf("NOSA", qargs={'limit': 1}, fargs={'popid':id})
     assert 1 == df.shape[0]
     assert id == df['popid'][0]
-    df = hli.getdf("NOSA", tabletype = "base", args={'limit': 1})
+    df = hli.getdf("NOSA", tabletype = "base", qargs={'limit': 1})
     assert "DataFrame" == df.__class__.__name__
     assert 1 == df.shape[0]
     id = df['popid'][0]
-    df = hli.getdf("NOSA", args={'limit': 1}, fargs={'popid':id})
+    df = hli.getdf("NOSA", qargs={'limit': 1}, fargs={'popid':id})
     assert 1 == df.shape[0]
     assert id == df['popid'][0]

@@ -118,7 +118,7 @@ def getdf(hli, tabletype="xport", qargs={}, fargs={}, **kwargs):
         raise TypeError('fargs must be a dictionary; got %s' % type(fargs).__name__)
 
     tablename = return_tablename(hli, tabletype)
-    df = tables.getdf(tablename, qargs=args, fargs=fargs, **kwargs)
+    df = tables.getdf(tablename, qargs=qargs, fargs=fargs, **kwargs)
     col_order = HLI_XPORT_COLNAMES[hli].extend(["species", "agency", "hli", "publish"])
     df = df.reindex(columns=col_order)
 

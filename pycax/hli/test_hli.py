@@ -16,18 +16,18 @@ def test_hli_getdf():
     """
     hli.getdf - test that data frame returned
     """
-    df = hli.getdf("NOSA", args={'limit': 1})
+    df = hli.getdf("NOSA", qargs={'limit': 1})
     assert "DataFrame" == df.__class__.__name__
     assert 1 == df.shape[0]
     id = df['popid'][0]
-    df = hli.getdf("NOSA", args={'limit': 1}, fargs={'popid':id})
+    df = hli.getdf("NOSA", qargs={'limit': 1}, fargs={'popid':id})
     assert 1 == df.shape[0]
     assert id == df['popid'][0]
-    df = hli.getdf("NOSA", tabletype = "base", args={'limit': 1})
+    df = hli.getdf("NOSA", tabletype = "base", qargs={'limit': 1})
     assert "DataFrame" == df.__class__.__name__
     assert 1 == df.shape[0]
     id = df['popid'][0]
-    df = hli.getdf("NOSA", args={'limit': 1}, fargs={'popid':id})
+    df = hli.getdf("NOSA", qargs={'limit': 1}, fargs={'popid':id})
     assert 1 == df.shape[0]
     assert id == df['popid'][0]
 
@@ -35,7 +35,7 @@ def test_hli_get():
     """
     hli.get - test that get function returns proper types
     """
-    query = hli.get("NOSA", args={'limit': 2})
+    query = hli.get("NOSA", qargs={'limit': 2})
     assert "TablesResponse" == query.__class__.__name__
     assert not query.data
     query.execute()
