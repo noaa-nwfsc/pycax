@@ -1,8 +1,11 @@
-# pycax
-
+[![github](https://img.shields.io/github/v/release/nwfsc-math-bio/pycax?color=brightgreen&label=GitHub)](https://github.com/nwfsc-math-bio/pycax/releases/latest)
 [![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.io/pycax)
 [![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
 [![coverage](https://nwfsc-math-bio.github.io/pycax/coverage.svg)](https://nwfsc-math-bio.github.io/pycax/_codecoverage/index.html)
+
+pycx <img src="docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace="20"/>
+========
+
 
 <!--
 [![pypi](https://img.shields.io/pypi/v/pyobis-client.svg)](https://pypi.python.org/pypi-client/pyobis-client)
