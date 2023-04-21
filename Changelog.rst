@@ -7,6 +7,7 @@ Changelog
     - none. first release for pypi yet
 - MINOR:
     - added a very simple usage Jupyter notebook
+    - fixed license file
 - PATCH:
      - NA
 
