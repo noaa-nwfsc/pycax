@@ -8,7 +8,7 @@ pycx <img src="docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace
 
 
 <!--
-[![pypi](https://img.shields.io/pypi/v/pyobis-client.svg)](https://pypi.python.org/pypi-client/pyobis-client)
+[![pypi](https://img.shields.io/pypi/v/pycax-client.svg)](https://pypi.python.org/pypi-client/pycax-client)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pycax-client.svg)](https://anaconda.org/conda-forge/pycax-client)
 -->
 
@@ -78,7 +78,7 @@ make clean html codecov linkcheck
 
 ## Credits
 
-Thanks to the developers of [pyobis](https://github.com/iobis/pyobis) package who created a package that was easy to use as a full template for a REST API client with tests, documentation files, and GitHub Actions and included the instructions and requirements for local development. The structure of pycax mimics pyobis struction but was adapted and changed for the CAX API. The [pygbif](https://github.com/gbif/pygbif) package is similar (and seems to have influenced pyobis). pygbif source was used for reference and study though no code directly used. Some pygbif code may appear in pycax if pyobis used pygbif functions for reference. Noteably the Sphinx documentation configuration files seem to originate from pygbif.
+Thanks to the developers of [pyobis](https://github.com/iobis/pyobis) package who created a package that was easy to use as a full template for a REST API client with tests, documentation files, and GitHub Actions and included the instructions and requirements for local development. The structure of pycax mimics pyobis structure but was adapted and changed for the CAX API. The [pygbif](https://github.com/gbif/pygbif) package is similar (and seems to have influenced pyobis). pygbif source was used for reference and study though no code directly used. Some pygbif code may appear in pycax if pyobis used pygbif functions for reference. Notably the Sphinx documentation configuration files seem to originate from pygbif.
 
 <hr>
 

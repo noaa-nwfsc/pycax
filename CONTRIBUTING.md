@@ -6,7 +6,7 @@ We use GitHub to host code, to track issues and feature requests, as well as acc
 Pull requests are the best way to propose:
 
 1. Fork the repo and create your branch from `main`.
-2. Follow Installation instructions in the [README](https://github.com/iobis/pycax/blob/master/README.rst)
+2. Follow Installation instructions in the [README](https://github.com/nwfsc-math-bio/pycax/blob/master/README.md)
 3. If you've added code that should be tested, add tests.
 4. If you've changed APIs, update the documentation.
 5. Issue the pull request
