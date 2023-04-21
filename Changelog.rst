@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.0 (2023-04-21)
+------------------
+- MAJOR:
+    - none. first release for pypi yet
+- MINOR:
+    - added a very simple usage Jupyter notebook
+- PATCH:
+     - NA
 
 0.1.0 (2022-12-11)
 ------------------
