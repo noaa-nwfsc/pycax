@@ -7,8 +7,11 @@ pycx <img src="docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace
 ========
 
 
-<!--
 [![pypi](https://img.shields.io/pypi/v/pycax-client.svg)](https://pypi.python.org/pypi-client/pycax-client)
+[![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.ic/pycax)
+[![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
+
+<!--
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pycax-client.svg)](https://anaconda.org/conda-forge/pycax-client)
 -->
 
@@ -21,15 +24,13 @@ NWFSC Math Bio CAX REST API clients:
 
 ## Installation
 
-<!--
 From pypi
 
 ```bash
 pip install pycax-client
 ```
--->
 
-Development version
+From GitHub (development version)
 
 ```bash
 pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax-client
