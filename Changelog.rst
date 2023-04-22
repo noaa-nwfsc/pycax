@@ -1,6 +1,17 @@
 Changelog
 =========
 
+1.0.2 (2023-04-22)
+------------------
+- MAJOR:
+    - none. 
+- MINOR:
+    - cleaned up the index page of documentation
+    - fixed license file
+    - added install from pip instructions
+- PATCH:
+     - NA
+
 1.0.0 (2023-04-21)
 ------------------
 - MAJOR:
