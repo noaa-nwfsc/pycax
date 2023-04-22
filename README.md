@@ -11,7 +11,7 @@ pycx <img src="docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pycax-client.svg)](https://anaconda.org/conda-forge/pycax-client)
 -->
 
-pycax is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. pycax was developed by the Northwest Fisheries Science Center Math Bio Program.
+pycax is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. pycax was developed by the Northwest Fisheries Science Center Math Bio Program by Elizabeth Holmes and Mari Williams.
 
 NWFSC Math Bio CAX REST API clients:
 
@@ -70,7 +70,7 @@ python3 -m pytest
 python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 # make the documentation in docs/_build/html
 cd docs # pycax/docs
-make clean html codecov linkcheck
+make clean html codecov # linkcheck # linkcheck not working
 ```
 
 ## Credits
@@ -85,6 +85,6 @@ This repository is a scientific product and is not official communication of the
 
 ### License
 
-This content was created by U.S. Government employees as part of their official duties. This content is not subject to copyright in the United States (17 U.S.C. §105) and is in the public domain within the United States of America. Additionally, copyright is waived worldwide through the CC0 1.0 Universal public domain dedication.
+This content was created by U.S. Government employees as part of their official duties. This content is not subject to copyright in the United States (17 U.S.C. §105) and is in the public domain within the United States of America. Additionally, copyright is waived worldwide through the MIT License.
 
 
