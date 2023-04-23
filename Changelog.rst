@@ -7,6 +7,7 @@ Changelog
     - typo on Readme
     - created badge for source code link
     - use full url for logo so it works on PyPi.org page
+    - added CITATION file and DOI badge
 
 1.0.2 (2023-04-22)
 ------------------
