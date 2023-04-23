@@ -80,7 +80,7 @@ Holmes, E. E and M. Williams. 2023. pycax: a Python client for the Coordinated A
 
 Make sure to include a citation for the Coordinated Assessments Partnership (CAP) data tables that you use. For details on citing CAP content see: https://www.streamnet.org/resources/citing-sn/
 
-See [CITATION](https://github.com/nwfsc-math-bio/pycax/blob/main/CITATION) for bibtex version.
+See [CITATION](https://github.com/nwfsc-math-bio/pycax/blob/main/CITATION) file for bibtex version.
 
 ## Credits
 
