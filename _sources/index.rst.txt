@@ -3,9 +3,9 @@ pycax |version|
 
 .. |pypi| 
 
-|docs| |coverage| |license| |source code| 
+|docs| |coverage| |license| |source code| |DOI|
 
-pycax is a Python client for the `Coordinated Assessments API <https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/>`__. Coordinated Assessments data eXchange (CAX) is developed by the Coordinated Assessments Partnership (CAP). CAP is a collaborative process to efficiently share and provide access to standardized derived information, such as fish population-scale high-level indicators (HLIs) and supporting metrics. Participants in CAP include state fish and wildlife management agencies, tribes, federal agencies such as National Oceanic and Atmospheric Administration Fisheries (NOAA Fisheries) and Bonneville Power Administration (BPA), and others. CAP is co-sponsored by StreamNet and Pacific Northwest Aquatic Monitoring Partnership (PNAMP). Make sure to review the `StreamNet Terms of Use <https://nwfsc-math-bio.github.io/rCAX/articles/terms.html>`__ for these data, the `StreamNet Data Policy <https://www.streamnet.org/resources/exchange-tools/data-agreements/>`__ and the citation information from `StreamNet <https://www.streamnet.org/resources/citing-sn/>`__ and `PNAMP <https://www.pnamp.org/project/data-citation-and-attribution>`__ for database queries. pycax authors: Eli Holmes and Mari Williams, Northwest Fisheries Science Center, NOAA Fisheries.
+pycax is a Python client for the Coordinated Assessments data exchange `REST API <https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/>`__. Coordinated Assessments data eXchange (CAX) is developed by the Coordinated Assessments Partnership (CAP). CAP is a collaborative process to efficiently share and provide access to standardized derived information, such as fish population-scale high-level indicators (HLIs) and supporting metrics. Participants in CAP include state fish and wildlife management agencies, tribes, federal agencies such as National Oceanic and Atmospheric Administration Fisheries (NOAA Fisheries) and Bonneville Power Administration (BPA), and others. CAP is co-sponsored by StreamNet and Pacific Northwest Aquatic Monitoring Partnership (PNAMP). Make sure to review the `StreamNet Terms of Use <https://nwfsc-math-bio.github.io/rCAX/articles/terms.html>`__ for these data, the `StreamNet Data Policy <https://www.streamnet.org/resources/exchange-tools/data-agreements/>`__ and the citation information from `StreamNet <https://www.streamnet.org/resources/citing-sn/>`__ and `PNAMP <https://www.pnamp.org/project/data-citation-and-attribution>`__ for database queries. pycax authors: Eli Holmes and Mari Williams, Northwest Fisheries Science Center, NOAA Fisheries.
 
 Other CAX clients: `rCAX` a R client, `nwfsc-math-bio/rCAX <https://nwfsc-math-bio.github.io/rCAX>`__
 
@@ -93,6 +93,9 @@ Meta
    :target: https://github.com/nwfsc-math-bio/pycax
    
 .. |license| image:: https://badgen.net/pypi/license/pycax-client/
+
+.. |DOI| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7855729.svg
+   :target: https://doi.org/10.5281/zenodo.7855729
 
 
 
