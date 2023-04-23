@@ -3,8 +3,9 @@
 [![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.io/pycax)
 [![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
 [![coverage](https://nwfsc-math-bio.github.io/pycax/coverage.svg)](https://nwfsc-math-bio.github.io/pycax/_codecoverage/index.html)
+[![PyPi license](https://badgen.net/pypi/license/pycax-client/)](https://pypi.org/project/pycax-client/)
 
-pycx <img src="docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace="20"/>
+pycax <img src="https://raw.githubusercontent.com/nwfsc-math-bio/pycax/main/docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace="20"/>
 ========
 
 <!--
