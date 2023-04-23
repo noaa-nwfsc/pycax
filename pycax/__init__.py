@@ -52,3 +52,11 @@ __all__ = [
     "datasets",
     "tables",
 ]
+
+# Set the bibtex entry to the misc entry referenced in CITATION.
+def _get_bibtex():
+    refs = (Path(__file__).parent / "CITATION").read_text().split("@misc")[1:]
+    return f"@misc{refs[0]}" if refs else ""
+
+__citation__ = __bibtex__ = _get_bibtex()
+
