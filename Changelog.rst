@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0.3 (2023-04-23)
+------------------
+- MINOR:
+    - typo on Readme
+    - created badge for source code link
+    - use full url for logo so it works on PyPi.org page
+
 1.0.2 (2023-04-22)
 ------------------
 - MAJOR:
@@ -9,8 +16,6 @@ Changelog
     - cleaned up the index page of documentation
     - fixed license file
     - added install from pip instructions
-- PATCH:
-     - NA
 
 1.0.0 (2023-04-21)
 ------------------
