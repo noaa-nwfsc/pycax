@@ -4,6 +4,7 @@
 [![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
 [![coverage](https://nwfsc-math-bio.github.io/pycax/coverage.svg)](https://nwfsc-math-bio.github.io/pycax/_codecoverage/index.html)
 [![PyPi license](https://badgen.net/pypi/license/pycax-client/)](https://pypi.org/project/pycax-client/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7855729.svg)](https://doi.org/10.5281/zenodo.7855729)
 
 pycax <img src="https://raw.githubusercontent.com/nwfsc-math-bio/pycax/main/docs/pycaxlogo.png" align="right" width="20%"  hspace="20" vspace="20"/>
 ========
@@ -12,7 +13,7 @@ pycax <img src="https://raw.githubusercontent.com/nwfsc-math-bio/pycax/main/docs
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pycax-client.svg)](https://anaconda.org/conda-forge/pycax-client)
 -->
 
-pycax is an Python client for the [Coordinated Assessments API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. pycax was developed by the Northwest Fisheries Science Center Math Bio Program by Elizabeth Holmes and Mari Williams.
+pycax is a Python client for the Coordinated Assessments [REST API](https://www.streamnet.org/resources/exchange-tools/rest-api-documentation/). Make sure to review the [StreamNet Terms of Use](https://nwfsc-math-bio.github.io/rCAX/articles/terms.html) for these data, the [StreamNet Data Policy](https://www.streamnet.org/resources/exchange-tools/data-agreements/) and the [citation information](https://www.streamnet.org/resources/citing-sn/) for database queries. pycax was developed by the Northwest Fisheries Science Center Math Bio Program by Elizabeth Holmes and Mari Williams.
 
 NWFSC Math Bio CAX REST API clients:
 
@@ -32,7 +33,6 @@ From GitHub (development version)
 ```bash
 pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax-client
 ```
-
 
 ## Documentation
 
@@ -73,6 +73,14 @@ python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 cd docs # pycax/docs
 make clean html codecov # linkcheck # linkcheck not working
 ```
+
+## Citation
+
+Holmes, E. E and M. Williams. 2023. pycax: a Python client for the Coordinated Assessments data exchange REST API. vX.X.X. doi:10.5281/zenodo.7855729.
+
+Make sure to include a citation for the Coordinated Assessments Partnership (CAP) data tables that you use. For details on citing CAP content see: https://www.streamnet.org/resources/citing-sn/
+
+See [CITATION](https://github.com/nwfsc-math-bio/pycax/blob/main/CITATION) for bibtex version.
 
 ## Credits
 
