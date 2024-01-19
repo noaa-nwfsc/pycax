@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pycax.tables.tables &mdash; pycax 1.0.3 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <title>pycax.tables.tables &mdash; pycax 1.0.4.dev1+ga7f759d documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=584d6787"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,7 +36,7 @@
               <img src="../../../_static/pycaxlogo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                1.0.3
+                1.0.4.dev1+ga7f759d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -101,7 +102,9 @@
 
 <span class="n">CAX_TABLES</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">getdf</span><span class="p">()</span>
 
-<div class="viewcode-block" id="TablesResponse"><a class="viewcode-back" href="../../../tables.html#pycax.tables.TablesResponse">[docs]</a><span class="k">class</span> <span class="nc">TablesResponse</span><span class="p">:</span>
+<div class="viewcode-block" id="TablesResponse">
+<a class="viewcode-back" href="../../../tables.html#pycax.tables.TablesResponse">[docs]</a>
+<span class="k">class</span> <span class="nc">TablesResponse</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A tables Response Object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -138,7 +141,10 @@
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;records&quot;</span><span class="p">])</span></div>
 
 
-<div class="viewcode-block" id="get"><a class="viewcode-back" href="../../../tables.html#pycax.tables.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="get">
+<a class="viewcode-back" href="../../../tables.html#pycax.tables.get">[docs]</a>
+<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get a table using the table name from /ca/tables API</span>
 
@@ -168,7 +174,10 @@
     <span class="k">return</span> <span class="n">TablesResponse</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="getdf"><a class="viewcode-back" href="../../../tables.html#pycax.tables.getdf">[docs]</a><span class="k">def</span> <span class="nf">getdf</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="getdf">
+<a class="viewcode-back" href="../../../tables.html#pycax.tables.getdf">[docs]</a>
+<span class="k">def</span> <span class="nf">getdf</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make table query and return a pandas DataFrame</span>
 
@@ -186,7 +195,10 @@
    
     <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="tableid"><a class="viewcode-back" href="../../../tables.html#pycax.tables.tableid">[docs]</a><span class="k">def</span> <span class="nf">tableid</span><span class="p">(</span><span class="n">tablename</span><span class="p">):</span>
+
+<div class="viewcode-block" id="tableid">
+<a class="viewcode-back" href="../../../tables.html#pycax.tables.tableid">[docs]</a>
+<span class="k">def</span> <span class="nf">tableid</span><span class="p">(</span><span class="n">tablename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Retrieve a table id given a tablename</span>
 
@@ -205,7 +217,10 @@
 
     <span class="k">return</span> <span class="n">tab</span><span class="o">.</span><span class="n">values</span></div>
 
-<div class="viewcode-block" id="dict_to_json"><a class="viewcode-back" href="../../../tables.html#pycax.tables.dict_to_json">[docs]</a><span class="k">def</span> <span class="nf">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">):</span>
+
+<div class="viewcode-block" id="dict_to_json">
+<a class="viewcode-back" href="../../../tables.html#pycax.tables.dict_to_json">[docs]</a>
+<span class="k">def</span> <span class="nf">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a dictionary to JSON format for CAX API: field, value, string format</span>
 
@@ -222,6 +237,7 @@
     <span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">generic</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">json_string</span></div>
+
 </pre></div>
 
            </div>
