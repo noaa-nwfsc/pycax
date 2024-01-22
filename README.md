@@ -2,7 +2,7 @@
 [![github](https://img.shields.io/github/v/release/nwfsc-math-bio/pycax?color=brightgreen&label=GitHub)](https://github.com/nwfsc-math-bio/pycax/releases/latest)
 [![docs](https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg)](https://nwfsc-math-bio.github.io/pycax)
 [![tests](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml/badge.svg)](https://github.com/nwfsc-math-bio/pycax/actions/workflows/tests.yml)
-[![coverage](https://nwfsc-math-bio.github.io/pycax/coverage.svg)](https://nwfsc-math-bio.github.io/pycax/_codecoverage/index.html)
+[![coverage](https://noaa-nwfsc.github.io/pycax/coverage.svg)](https://noaa-nwfsc.github.io/pycax/_codecoverage/index.html)
 [![PyPi license](https://badgen.net/pypi/license/pycax-client/)](https://pypi.org/project/pycax-client/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7855729.svg)](https://doi.org/10.5281/zenodo.7855729)
 
