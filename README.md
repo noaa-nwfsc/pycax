@@ -17,8 +17,16 @@ pycax is a Python client for the Coordinated Assessments [REST API](https://www.
 
 NWFSC Math Bio CAX REST API clients:
 
-* Python client: [pycax on GitHub at nwfsc-math-bio/pycax](https://github.com/nwfsc-math-bio/pycax)
+* Python client: [pycax on GitHub at noaa-nwfsc/pycax](https://github.com/noaa-nwfsc/pycax)
 * R client: [rCAX on GitHub at nwfsc-math-bio/rCAX](https://github.com/nwfsc-math-bio/rCAX)
+
+## Citation
+
+Holmes, E. E and M. Williams. 2023. pycax: a Python client for the Coordinated Assessments data exchange REST API. vX.X.X. doi:10.5281/zenodo.7855729.
+
+Make sure to include a citation for the Coordinated Assessments Partnership (CAP) data tables that you use. For details on citing CAP content see: https://www.streamnet.org/resources/citing-sn/
+
+See [CITATION](https://github.com/nwfsc-math-bio/pycax/blob/main/CITATION) file for bibtex version.
 
 ## Installation
 
@@ -73,14 +81,6 @@ python3 -m pytest -rxs --cov=pycax --cov-report term-missing ./pycax
 cd docs # pycax/docs
 make clean html codecov # linkcheck # linkcheck not working
 ```
-
-## Citation
-
-Holmes, E. E and M. Williams. 2023. pycax: a Python client for the Coordinated Assessments data exchange REST API. vX.X.X. doi:10.5281/zenodo.7855729.
-
-Make sure to include a citation for the Coordinated Assessments Partnership (CAP) data tables that you use. For details on citing CAP content see: https://www.streamnet.org/resources/citing-sn/
-
-See [CITATION](https://github.com/nwfsc-math-bio/pycax/blob/main/CITATION) file for bibtex version.
 
 ## Credits
 
