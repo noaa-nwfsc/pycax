@@ -26,7 +26,7 @@ Holmes, E. E and M. Williams. 2023. pycax: a Python client for the Coordinated A
 
 Make sure to include a citation for the Coordinated Assessments Partnership (CAP) data tables that you use. For details on citing CAP content see: https://www.streamnet.org/resources/citing-sn/
 
-See [CITATION](https://github.com/nwfsc-math-bio/pycax/blob/main/CITATION) file for bibtex version.
+See [CITATION](https://github.com/noaa-nwfsc/pycax/blob/main/CITATION) file for bibtex version.
 
 ## Installation
 
@@ -39,12 +39,12 @@ pip install pycax-client
 From GitHub (development version)
 
 ```bash
-pip install git+git://github.com/nwfsc-math-bio/pycax.git#egg=pycax-client
+pip install git+git://github.com/noaa-nwfsc/pycax.git#egg=pycax-client
 ```
 
 ## Documentation
 
-The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.github.io/pycax](https://nwfsc-math-bio.github.io/pycax).
+The official documentation is hosted on GitHub Pages [https://noaa-nwfsc.github.io/pycax](https://noaa-nwfsc.github.io/pycax).
 
 ## Library API
 
@@ -56,7 +56,7 @@ The official documentation is hosted on GitHub Pages [https://nwfsc-math-bio.git
 
 ## Sample analysis
 
-Some Jupyter notebooks are in the [notebooks](https://github.com/nwfsc-math-bio/pycax/tree/main/notebooks) directory.
+Some Jupyter notebooks are in the [notebooks](https://github.com/noaa-nwfsc/pycax/tree/main/notebooks) directory.
 
 ## Contributing
 
@@ -66,7 +66,7 @@ To install editable dev version from github for local development. System prereq
 
 ```bash
 # fetch code
-git clone git@github.com:nwfsc-math-bio/pycax.git
+git clone git@github.com:noaa-nwfsc/pycax.git
 cd pycax
 # install the requirements
 python3 -m pip install -r requirements.txt
