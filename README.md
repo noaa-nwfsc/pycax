@@ -86,6 +86,8 @@ make clean html codecov # linkcheck # linkcheck not working
 
 Thanks to the developers of [pyobis](https://github.com/iobis/pyobis) package who created a package that was easy to use as a full template for a REST API client with tests, documentation files, and GitHub Actions and included the instructions and requirements for local development. The structure of pycax mimics pyobis structure but was adapted and changed for the CAX API. The [pygbif](https://github.com/gbif/pygbif) package is similar (and seems to have influenced pyobis). pygbif source was used for reference and study though no code directly used. Some pygbif code may appear in pycax if pyobis used pygbif functions for reference. Notably the Sphinx documentation configuration files seem to originate from pygbif.
 
+[![Contributors](https://contrib.rocks/image?repo=noaa-nwfsc/pycax)](https://github.com/noaa-nwfsc/pycax/graphs/contributors)
+
 <hr>
 
 ### Disclaimer
