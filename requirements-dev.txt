@@ -17,6 +17,7 @@ coverage-badge
 pytest-sugar
 pytest-xdist
 setuptools_scm
+setuptools<81
 sphinx
 sphinx_rtd_theme
 twine
