@@ -86,8 +86,8 @@ Meta
 .. |docs| image:: https://github.com/nwfsc-math-bio/pycax/actions/workflows/deploy-docs.yml/badge.svg
    :target: https://nwfsc-math-bio.github.io/pycax
    
-.. |coverage| image:: https://nwfsc-math-bio.github.io/pycax/coverage.svg
-   :target: https://nwfsc-math-bio.github.io/pycax/_codecoverage/index.html
+.. |coverage| image:: https://noaa-nwfsc.github.io/pycax/coverage.svg
+   :target: https://noaa-nwfsc.github.io/pycax/_codecoverage/index.html
    
 .. |source code| image:: https://img.shields.io/badge/-Source%20code-61DAFB?logo=github&logoColor=white&style=flat
    :target: https://github.com/nwfsc-math-bio/pycax
