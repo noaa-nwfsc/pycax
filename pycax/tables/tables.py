@@ -124,7 +124,7 @@ def tableid(tablename):
     if not 1 == len(tab):
         stop('Something wrong; no table id returned. Did you misspell the table name?')
 
-    return tab.values
+    return tab.to_numpy()
 
 def dict_to_json(fargs):
     """
