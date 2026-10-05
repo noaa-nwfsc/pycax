@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pycax.hli.hli &mdash; pycax 1.0.4.dev9+g5a44ded documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+  <title>pycax.hli.hli &mdash; pycax 1.0.4.dev31+g4f754d55b documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=af1a71bd"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=b3553ea5"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -35,9 +33,6 @@
             pycax
               <img src="../../../_static/pycaxlogo.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.0.4.dev9+g5a44ded
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -78,72 +73,72 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pycax.hli.hli</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Query for a HLI base or XPort table</span>
 
 <span class="sd">/ca?table_id=&lt;id&gt; API endpoint with id equal to one of the HLI or HLI_XPort table ids</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="sd">"""</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">pycax.caxutils</span> <span class="kn">import</span> <span class="n">get_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pycax.caxutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_data</span>
 
-<span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">tables</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pycax</span><span class="w"> </span><span class="kn">import</span> <span class="n">tables</span>
 
 <span class="c1"># Set up the variables</span>
 
-<span class="n">HLI_SHORT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="s2">&quot;SAR&quot;</span><span class="p">,</span> <span class="s2">&quot;PNI&quot;</span><span class="p">,</span> <span class="s2">&quot;JuvOut&quot;</span><span class="p">,</span> <span class="s2">&quot;PreSmolt&quot;</span><span class="p">,</span> <span class="s2">&quot;RperS&quot;</span><span class="p">}</span>
+<span class="n">HLI_SHORT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"NOSA"</span><span class="p">,</span> <span class="s2">"SAR"</span><span class="p">,</span> <span class="s2">"PNI"</span><span class="p">,</span> <span class="s2">"JuvOut"</span><span class="p">,</span> <span class="s2">"PreSmolt"</span><span class="p">,</span> <span class="s2">"RperS"</span><span class="p">}</span>
 <span class="n">HLI_TABLENAMES</span> <span class="o">=</span> <span class="p">{</span> 
-    <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;NOSA&#39;</span><span class="p">:</span> <span class="s1">&#39;NOSA&#39;</span><span class="p">,</span>  <span class="s1">&#39;SAR&#39;</span><span class="p">:</span> <span class="s1">&#39;SAR&#39;</span><span class="p">,</span>  <span class="s1">&#39;PNI&#39;</span><span class="p">:</span> <span class="s1">&#39;PNI&#39;</span><span class="p">,</span> 
-        <span class="s1">&#39;JuvOut&#39;</span><span class="p">:</span> <span class="s1">&#39;JuvenileOutmigrants&#39;</span><span class="p">,</span>  <span class="s1">&#39;PreSmolt&#39;</span><span class="p">:</span> <span class="s1">&#39;PresmoltAbundance&#39;</span><span class="p">,</span> 
-        <span class="s1">&#39;RperS&#39;</span><span class="p">:</span> <span class="s1">&#39;RperS&#39;</span>
+    <span class="s1">'base'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'NOSA'</span><span class="p">:</span> <span class="s1">'NOSA'</span><span class="p">,</span>  <span class="s1">'SAR'</span><span class="p">:</span> <span class="s1">'SAR'</span><span class="p">,</span>  <span class="s1">'PNI'</span><span class="p">:</span> <span class="s1">'PNI'</span><span class="p">,</span> 
+        <span class="s1">'JuvOut'</span><span class="p">:</span> <span class="s1">'JuvenileOutmigrants'</span><span class="p">,</span>  <span class="s1">'PreSmolt'</span><span class="p">:</span> <span class="s1">'PresmoltAbundance'</span><span class="p">,</span> 
+        <span class="s1">'RperS'</span><span class="p">:</span> <span class="s1">'RperS'</span>
         <span class="p">},</span>
-    <span class="s1">&#39;xport&#39;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="s1">'xport'</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]:</span>
-    <span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="s1">&#39;xport&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;XPortCA_&#39;</span><span class="o">+</span><span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_01&#39;</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="s1">'base'</span><span class="p">]:</span>
+    <span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="s1">'xport'</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'XPortCA_'</span><span class="o">+</span><span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="s1">'base'</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="o">+</span><span class="s1">'_01'</span>
 
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">pkgutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pkgutil</span>
 
-<span class="c1">#data = pkgutil.get_data(__name__, &quot;data/xport_colnames_json.txt&quot;)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="s2">&quot;xport_colnames_json.txt&quot;</span><span class="p">)</span>
+<span class="c1">#data = pkgutil.get_data(__name__, "data/xport_colnames_json.txt")</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="s2">"xport_colnames_json.txt"</span><span class="p">)</span>
 <span class="n">HLI_XPORT_COLNAMES</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
  
 <div class="viewcode-block" id="return_tablename">
 <a class="viewcode-back" href="../../../hli.html#pycax.hli.return_tablename">[docs]</a>
-<span class="k">def</span> <span class="nf">return_tablename</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">return_tablename</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Retrieve a table name for a hli short code for base or xport table type</span>
 
 <span class="sd">    :param hli: [String] A HLI short code: NOSA, SAR, PNI, JuvOut, PreSmolt, RperS</span>
-<span class="sd">    :param tabletype: [String] &quot;base&quot; or &quot;xport&quot;</span>
+<span class="sd">    :param tabletype: [String] "base" or "xport"</span>
 <span class="sd">    :return: A table name as a string</span>
 
 <span class="sd">    Usage::</span>
 
 <span class="sd">        from pycax import hli</span>
-<span class="sd">        hli.tablename(&#39;NOSA&#39;, &#39;base&#39;)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        hli.tablename('NOSA', 'base')</span>
+<span class="sd">    """</span>
     <span class="n">valid</span> <span class="o">=</span> <span class="n">HLI_SHORT</span>
     <span class="k">if</span> <span class="n">hli</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;hli must be one of </span><span class="si">%r</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">valid</span><span class="p">)</span>
-    <span class="n">valid</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;xport&quot;</span><span class="p">]</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"hli must be one of </span><span class="si">%r</span><span class="s2">."</span> <span class="o">%</span> <span class="n">valid</span><span class="p">)</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"base"</span><span class="p">,</span> <span class="s2">"xport"</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">tabletype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;tabletype must be one of </span><span class="si">%r</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">valid</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"tabletype must be one of </span><span class="si">%r</span><span class="s2">."</span> <span class="o">%</span> <span class="n">valid</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">HLI_TABLENAMES</span><span class="p">[</span><span class="n">tabletype</span><span class="p">][</span><span class="n">hli</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="get">
 <a class="viewcode-back" href="../../../hli.html#pycax.hli.get">[docs]</a>
-<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="o">=</span><span class="s2">&quot;xport&quot;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="o">=</span><span class="s2">"xport"</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get a table using the table name from /ca/tables API: pycax.datasets.getdf()</span>
 
 <span class="sd">    :param hli: [String] A HLI short code: NOSA, SAR, PNI, JuvOut, PreSmolt, RperS</span>
-<span class="sd">    :param tabletype: [String] &#39;base&#39; or &#39;xport&#39;; default is xport</span>
+<span class="sd">    :param tabletype: [String] 'base' or 'xport'; default is xport</span>
 <span class="sd">    :param qargs: [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</span>
 <span class="sd">    :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</span>
 
@@ -152,34 +147,34 @@
 <span class="sd">    Usage::</span>
 
 <span class="sd">        from pycax import hli</span>
-<span class="sd">        query = hli.get(&#39;NOSA&#39;, &#39;base&#39;, qargs={&#39;limit&#39;: 1})</span>
+<span class="sd">        query = hli.get('NOSA', 'base', qargs={'limit': 1})</span>
 <span class="sd">        query.execute()</span>
 <span class="sd">        query.data # get the data</span>
 <span class="sd">        query.api_url # get the API url</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">qargs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;qargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'qargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fargs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;fargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'fargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 
     <span class="n">tablename</span> <span class="o">=</span> <span class="n">return_tablename</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span> <span class="n">args</span><span class="p">[</span><span class="s1">'filter'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">tables</span><span class="o">.</span><span class="n">TablesResponse</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="getdf">
 <a class="viewcode-back" href="../../../hli.html#pycax.hli.getdf">[docs]</a>
-<span class="k">def</span> <span class="nf">getdf</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="o">=</span><span class="s2">&quot;xport&quot;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">getdf</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="o">=</span><span class="s2">"xport"</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get a HLI table and return a data frame sorted in the same order as the HLI Tabular Query</span>
 
 <span class="sd">    This uses the json file for the column names in in the data directory.</span>
 
 <span class="sd">    :param hli: [String] A HLI short code: NOSA, SAR, PNI, JuvOut, PreSmolt, RperS</span>
-<span class="sd">    :param tabletype: [String] &#39;base&#39; or &#39;xport&#39;; default is xport</span>
+<span class="sd">    :param tabletype: [String] 'base' or 'xport'; default is xport</span>
 <span class="sd">    :param qargs: [dict] a dictionary of query parameters. The default is no parameters. See usage for common query parameters</span>
 <span class="sd">    :param fargs: [dict] a dictionary of filter values as {colname1: value}, {colname1: [value1, value2]} or {colname1: value, colname2: value}. The default is no filter. See usage for examples.</span>
 
@@ -188,26 +183,26 @@
 <span class="sd">    Usage::</span>
 
 <span class="sd">        from pycax import hli</span>
-<span class="sd">        res = hli.getdf(&#39;NOSA&#39;, &#39;xport&#39;, fargs={&#39;popid&#39;: 7})</span>
+<span class="sd">        res = hli.getdf('NOSA', 'xport', fargs={'popid': 7})</span>
 <span class="sd">        res.head()</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tabletype</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;tabletype must be a string with value base or xport; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">tabletype</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">tabletype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;xport&#39;</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;tabletype must be a string with value base or xport&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'tabletype must be a string with value base or xport; got </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">tabletype</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tabletype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'base'</span><span class="p">,</span> <span class="s1">'xport'</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'tabletype must be a string with value base or xport'</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;hli must be a string with value base or xport; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">tabletype</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">hli</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;SAR&#39;</span><span class="p">,</span> <span class="s1">&#39;PNI&#39;</span><span class="p">,</span> <span class="s1">&#39;JuvOut&#39;</span><span class="p">,</span> <span class="s1">&#39;PreSmolt&#39;</span><span class="p">,</span> <span class="s1">&#39;RperS&#39;</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;hli must be a string with value NOSA, SAR, PNI, JuvOut, PreSmolt, or RperS&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'hli must be a string with value base or xport; got </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">tabletype</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hli</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'NOSA'</span><span class="p">,</span> <span class="s1">'SAR'</span><span class="p">,</span> <span class="s1">'PNI'</span><span class="p">,</span> <span class="s1">'JuvOut'</span><span class="p">,</span> <span class="s1">'PreSmolt'</span><span class="p">,</span> <span class="s1">'RperS'</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'hli must be a string with value NOSA, SAR, PNI, JuvOut, PreSmolt, or RperS'</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">qargs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;qargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'qargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fargs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;fargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'fargs must be a dictionary; got </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">fargs</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 
     <span class="n">tablename</span> <span class="o">=</span> <span class="n">return_tablename</span><span class="p">(</span><span class="n">hli</span><span class="p">,</span> <span class="n">tabletype</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">tables</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="n">tablename</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="n">qargs</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="n">fargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">col_order</span> <span class="o">=</span> <span class="n">HLI_XPORT_COLNAMES</span><span class="p">[</span><span class="n">hli</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="s2">&quot;agency&quot;</span><span class="p">,</span> <span class="s2">&quot;hli&quot;</span><span class="p">,</span> <span class="s2">&quot;publish&quot;</span><span class="p">])</span>
+    <span class="n">col_order</span> <span class="o">=</span> <span class="n">HLI_XPORT_COLNAMES</span><span class="p">[</span><span class="n">hli</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">"species"</span><span class="p">,</span> <span class="s2">"agency"</span><span class="p">,</span> <span class="s2">"hli"</span><span class="p">,</span> <span class="s2">"publish"</span><span class="p">])</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">col_order</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">df</span></div>

@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hli module &mdash; pycax 1.0.4.dev9+g5a44ded documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>hli module &mdash; pycax 1.0.4.dev31+g4f754d55b documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=af1a71bd"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=b3553ea5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="tables module" href="tables.html" />
-    <link rel="prev" title="pycax 1.0.4.dev9+g5a44ded" href="index.html" /> 
+    <link rel="prev" title="pycax 1.0.4.dev31+g4f754d55b" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,9 +36,6 @@
             pycax
               <img src="_static/pycaxlogo.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                1.0.4.dev9+g5a44ded
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -93,14 +88,14 @@
 <span id="hli-module"></span><span id="hli"></span><h1>hli module<a class="headerlink" href="#module-pycax.hli" title="Link to this heading"></a></h1>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pycax</span><span class="w"> </span><span class="kn">import</span> <span class="n">hli</span>
 
 <span class="c1"># Download one record as a data frame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="nb">id</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;popid&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">"NOSA"</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'limit'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="nb">id</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'popid'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># Download a data frame using a filter</span>
-<span class="n">filt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">&quot;NOSA&quot;</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="n">filt</span><span class="p">)</span>
+<span class="n">filt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'popid'</span><span class="p">:</span> <span class="nb">id</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s2">"NOSA"</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="n">filt</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -124,8 +119,8 @@
 </dd>
 </dl>
 <p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
-<span class="n">query</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limit&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pycax</span><span class="w"> </span><span class="kn">import</span> <span class="n">hli</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'NOSA'</span><span class="p">,</span> <span class="s1">'base'</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'limit'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="n">query</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 <span class="n">query</span><span class="o">.</span><span class="n">data</span> <span class="c1"># get the data</span>
 <span class="n">query</span><span class="o">.</span><span class="n">api_url</span> <span class="c1"># get the API url</span>
@@ -152,8 +147,8 @@
 </dd>
 </dl>
 <p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;xport&#39;</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;popid&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pycax</span><span class="w"> </span><span class="kn">import</span> <span class="n">hli</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">hli</span><span class="o">.</span><span class="n">getdf</span><span class="p">(</span><span class="s1">'NOSA'</span><span class="p">,</span> <span class="s1">'xport'</span><span class="p">,</span> <span class="n">fargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'popid'</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
 <span class="n">res</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -175,8 +170,8 @@
 </dd>
 </dl>
 <p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pycax</span> <span class="kn">import</span> <span class="n">hli</span>
-<span class="n">hli</span><span class="o">.</span><span class="n">tablename</span><span class="p">(</span><span class="s1">&#39;NOSA&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pycax</span><span class="w"> </span><span class="kn">import</span> <span class="n">hli</span>
+<span class="n">hli</span><span class="o">.</span><span class="n">tablename</span><span class="p">(</span><span class="s1">'NOSA'</span><span class="p">,</span> <span class="s1">'base'</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -188,7 +183,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="pycax 1.0.4.dev9+g5a44ded" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="pycax 1.0.4.dev31+g4f754d55b" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="tables.html" class="btn btn-neutral float-right" title="tables module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
